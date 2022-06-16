@@ -1,21 +1,11 @@
 import { useState } from 'react'
 import InfoBox from '../components/InfoBox'
 
+
 const Search = () => {
-    // API key
-    const API_key = "b9c2c073ec0a83e5114de86de84f79b2"
-
+    // const API_Key = process.env.API_KEY
     // State Variables
-    const [URL, setURL] = useState('')
-    const [searchBar, setSearchBarState] = useState('')
     const [showSearch, setShowSearch] = useState('no results yet')
-
-    // api search function
-    const apiSearch = async () => {
-        const response = await fetch (URL)
-        const data = await response.json()
-        return searchResults(data)
-    }
 
     const searchResults = (data) => {
         console.log(data)
@@ -34,15 +24,22 @@ const Search = () => {
         })
         // console.log(transformedData)
         setShowSearch(transformedData)
-        
+    }
+    
+    // api search function
+    const apiSearch = async (URL) => {
+        console.log(URL)
+        const response = await fetch (URL)
+        const data = await response.json()
+        return searchResults(data)
     }
    
     // function that sets the URL called based on searchbar text
     const handleSubmit = e => {
-        e.preventDefault()
-        const searchBarInfo = e.target.searchBar.value
-        setURL(`https://api.themoviedb.org/3/search/multi?api_key=${API_key}&language=en-US&query=${searchBarInfo}&page=1&include_adult=false`)
-        apiSearch()
+        // Prevents page refresh
+        e.preventDefault()      
+        // Sends URL for API Search  
+        apiSearch(`https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${e.target.searchBar.value}&page=1&include_adult=false`)
     }
 
     return (
