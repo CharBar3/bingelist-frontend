@@ -1,11 +1,13 @@
 import './App.css';
 import Search from './pages/Search';
+import Nav from './components/NavBar'
 
 function App() {
   
   return (
     <div className="App">
-      BingeList App
+     
+      <Nav />  
       <Search/>
     </div>
   );
