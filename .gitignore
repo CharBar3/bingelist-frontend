@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.vscode
+# adding .vscode to gitignore in case anyone uses peacock (like i do)
