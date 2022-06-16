@@ -3,32 +3,31 @@ import InfoBox from '../components/InfoBox'
 
 
 const Search = () => {
-    // const API_Key = process.env.API_KEY
     // State Variables
     const [showSearch, setShowSearch] = useState('no results yet')
 
     const searchResults = (data) => {
-        console.log(data)
         const transformedData = data.results.map(({name, media_type, id, backdrop_path, poster_path}, index) => {
             if (name && media_type === "tv") {
             const srcConvert = `https://image.tmdb.org/t/p/w500/${poster_path}`
             return ( 
+            <>
             <InfoBox
             title={name}
             media_type={media_type}
             img={srcConvert}
             key={index}
             />
+            {/* <button onClick={() => addToBingeList({id})}>Add to BingeList</button> */}
+            </>
             )
             }
         })
-        // console.log(transformedData)
         setShowSearch(transformedData)
     }
     
     // api search function
     const apiSearch = async (URL) => {
-        console.log(URL)
         const response = await fetch (URL)
         const data = await response.json()
         return searchResults(data)
