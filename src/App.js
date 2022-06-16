@@ -1,8 +1,10 @@
 import './App.css';
 import Search from './pages/Search';
+import Nav from './components/NavBar'
 import Home from './pages/Home';
 import { useState, useEffect } from 'react'
 import { auth } from './services/firebase'
+
 
 function App() {
   const [ user, setUser ] = setUser(null)
@@ -16,7 +18,8 @@ function App() {
   
   return (
     <div className="App">
-      BingeList App
+     
+      <Nav />  
       <Search/>
       <Home />
     </div>
