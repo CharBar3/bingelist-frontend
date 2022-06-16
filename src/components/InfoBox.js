@@ -1,6 +1,6 @@
 // Box for displaying the title and poster for a show that's clickable 
 
-const InfoBox = ({img, title, media_type, key}) => {
+const InfoBox = ({img, title, media_type}) => {
     
     return (
         <div className="infoboxDiv">
