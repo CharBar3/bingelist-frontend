@@ -15,12 +15,14 @@ const Search = () => {
         const data = await response.json()
         console.log(data)
         
-        const transformedData = data.results.map(({name, media_type}, index) => {
+        const transformedData = data.results.map(({name, media_type, id, backdrop_path, poster_path}, index) => {
             // console.log({element.name})
+            const srcConvert = `https://image.tmdb.org/t/p/w500/${poster_path}`
             return ( 
-            <div>
-            
+            <div className='showSearch' >
+            <img src={srcConvert} alt="" />
             <p>{name}</p>
+            <p>{media_type}</p>
             </div>
             )
         })
