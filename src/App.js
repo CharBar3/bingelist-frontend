@@ -1,5 +1,6 @@
 import './App.css';
 import Search from './pages/Search';
+import Home from './pages/Home';
 
 function App() {
   
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       BingeList App
       <Search/>
+      <Home />
     </div>
   );
 }
