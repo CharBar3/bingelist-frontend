@@ -1,35 +1,40 @@
 import { useState } from 'react'
+import InfoBox from '../components/InfoBox'
 
 const Search = () => {
-    // state to handle the URL changing based on search
-    const [URL, setURL] = useState('')
-    const [searchBar, setSearchBarState] = useState('')
-    // api key to be moved to .env file later
+    // API key
     const API_key = "b9c2c073ec0a83e5114de86de84f79b2"
 
-    const [showSearch, setShowSearch] = useState('yeet')
+    // State Variables
+    const [URL, setURL] = useState('')
+    const [searchBar, setSearchBarState] = useState('')
+    const [showSearch, setShowSearch] = useState('no results yet')
 
     // api search function
     const apiSearch = async () => {
         const response = await fetch (URL)
         const data = await response.json()
+        return searchResults(data)
+    }
+
+    const searchResults = (data) => {
         console.log(data)
-        
         const transformedData = data.results.map(({name, media_type, id, backdrop_path, poster_path}, index) => {
-            // console.log({element.name})
+            if (name && media_type === "tv") {
             const srcConvert = `https://image.tmdb.org/t/p/w500/${poster_path}`
             return ( 
-            <div className='showSearch' >
-            <img src={srcConvert} alt="" />
-            <p>{name}</p>
-            <p>{media_type}</p>
-            </div>
+            <InfoBox
+            title={name}
+            media_type={media_type}
+            img={srcConvert}
+            key={index}
+            />
             )
+            }
         })
-
-
-        console.log(transformedData)
+        // console.log(transformedData)
         setShowSearch(transformedData)
+        
     }
    
     // function that sets the URL called based on searchbar text
