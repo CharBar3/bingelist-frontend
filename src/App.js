@@ -28,7 +28,7 @@ function App(props) {
 
 const URL = 'http://localhost:4000/bingelist'
 
-const [dashoboardShows, setDashboardShows] = useState(null)
+const [dashoboardShows, setDashboardShows] = useState([])
 
 const getShows = async () => {
   const response = await fetch(URL)
