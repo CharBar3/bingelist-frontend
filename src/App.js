@@ -1,14 +1,16 @@
 import './App.css';
 import Search from './pages/Search';
-import Nav from './components/NavBar'
 import Home from './pages/Home';
 import { useState, useEffect } from 'react'
 import { auth } from './services/firebase'
+import NavBar from './components/NavBar';
+import Dashboard from './pages/Dashboard';
+import SeriesShow from './pages/SeriesShow';
 
 
 
 function App() {
-  const [ user, setUser ] = useState(null)
+  // const [ user, setUser ] = useState(null)
 
   // user token add to requests to express
 // const token = await user.getIdToken()
@@ -22,18 +24,19 @@ function App() {
 //   }
 // })
   
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => setUser(user))
-    return () => {
-      unsubscribe()
-    }
-  }, [])
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged(user => setUser(user))
+  //   return () => {
+  //     unsubscribe()
+  //   }
+  // }, [])
   
   return (
     <div className="App">
-      <Nav />  
-      <Search/>
       <Home />
+      <Search/>
+      <Dashboard />
+      <SeriesShow />
     </div>
   );
 }
