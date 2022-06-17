@@ -7,7 +7,7 @@ import { auth } from './services/firebase'
 
 
 function App() {
-  const [ user, setUser ] = setUser(null)
+  const [ user, setUser ] = useState(null)
   
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => setUser(user))
@@ -18,7 +18,6 @@ function App() {
   
   return (
     <div className="App">
-     
       <Nav />  
       <Search/>
       <Home />
