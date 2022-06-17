@@ -25,6 +25,17 @@ function App(props) {
 //     'Authorization': 'Bearer ' + token
 //   }
 // })
+
+const URL = 'http://localhost:4000/bingelist'
+
+const [dashoboardShows, setDashboardShows] = useState(null)
+
+const getShows = async () => {
+  const response = await fetch(URL)
+  const data = await response.json()
+  setDashboardShows(data)
+}
+
   
   // useEffect(() => {
   //   const unsubscribe = auth.onAuthStateChanged(user => setUser(user))
@@ -35,10 +46,11 @@ function App(props) {
   
   return (
     <div className="App">
+      <button onClick={getShows}>getShows</button>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="search" element={<Search />} />
-        <Route path="bingelist" element={<Dashboard />}>
+        <Route path="bingelist" element={<Dashboard getShows={getShows} dashoboardShows={dashoboardShows}/>}>
           <Route path=":id" element={<SeriesShow />} />
         </Route>
       </Routes>
