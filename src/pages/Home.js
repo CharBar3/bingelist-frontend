@@ -1,18 +1,15 @@
 //home/login page with about info
-import Login from "../components/Login"
-import { auth } from "../services/firebase"
-import { useEffect, useState } from "react"
+import NavBar from "../components/NavBar";
 
 const Home = () => {
-  const [ user, setUser] = useState(null);
-  useEffect(() => {
-    auth.onAuthStateChanged(user => setUser(user));
-  }, []);
-
   return (
-    <div>Home Page
-      <Login user={user} /> 
-    </div>
+    <>
+      <NavBar />
+      <div>
+        <h1>Home Page</h1>
+        <p>about information here</p>
+      </div>
+    </>
   )
 }
 

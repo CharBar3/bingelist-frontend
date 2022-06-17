@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import InfoBox from '../components/InfoBox'
+import NavBar from '../components/NavBar'
 
 
 const Search = () => {
@@ -43,6 +44,7 @@ const Search = () => {
 
     return (
         <>
+        <NavBar />
         <h1>App Search</h1>
         <div>
             <form onSubmit={handleSubmit}>
