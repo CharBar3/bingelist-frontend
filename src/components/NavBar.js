@@ -4,9 +4,9 @@ import { login, logout } from '../services/firebase'
 function NavBar() {
   return (
     <div className='container'>
-         <h1>BingeList </h1>
-         <div class="menu">
-                {/* <a href="" class="is-active">Home</a>
+         <h3>BingeList</h3>
+         <div className="menu">
+                {/* <a href="" className="is-active">Home</a>
                 <a href="">About</a>
                 <a href="">Contact</a> */}
                 <button onClick={login}>login</button>

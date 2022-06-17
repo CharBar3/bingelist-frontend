@@ -6,10 +6,12 @@ import { auth } from './services/firebase'
 import NavBar from './components/NavBar';
 import Dashboard from './pages/Dashboard';
 import SeriesShow from './pages/SeriesShow';
+import { Route } from 'react-router-dom';
+import { Routes } from 'react-router-dom';
 
 
 
-function App() {
+function App(props) {
   // const [ user, setUser ] = useState(null)
 
   // user token add to requests to express
@@ -33,10 +35,13 @@ function App() {
   
   return (
     <div className="App">
-      <Home />
-      <Search/>
-      <Dashboard />
-      <SeriesShow />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="search" element={<Search />} />
+        <Route path="bingelist" element={<Dashboard />}>
+          <Route path=":id" element={<SeriesShow />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

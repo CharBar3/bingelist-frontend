@@ -44,15 +44,15 @@ const Search = () => {
 
     return (
         <>
-        <NavBar />
-        <h1>App Search</h1>
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input type="text" name="searchBar"/>
-                <button type='submit'>Search</button>
-            </form>
-            {showSearch}
-        </div>
+            <NavBar />
+            <h1>Series Search</h1>
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <input type="text" name="searchBar"/>
+                    <button type='submit'>Search</button>
+                </form>
+                {showSearch}
+            </div>
         </>
     )
 }
