@@ -3,15 +3,25 @@ import Search from './pages/Search';
 import Home from './pages/Home';
 import { useState, useEffect } from 'react'
 import { auth } from './services/firebase'
-import NavBar from './components/NavBar';
 import Dashboard from './pages/Dashboard';
 import SeriesShow from './pages/SeriesShow';
 import { Route } from 'react-router-dom';
 import { Routes } from 'react-router-dom';
+import { response } from 'express';
 
 
 
 function App(props) {
+  const [ show, setShow ] = useState(null);
+  const getShow = async () => {
+    const data = await response.json();
+    setShow(data)
+  }
+
+  useEffect(() => {
+    getShow();
+  }, []);
+
   // const [ user, setUser ] = useState(null)
 
   // user token add to requests to express
@@ -38,7 +48,7 @@ function App(props) {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="search" element={<Search />} />
-        <Route path="bingelist" element={<Dashboard />}>
+        <Route path="bingelist" element={<Dashboard show={show}/>}>
           <Route path=":id" element={<SeriesShow />} />
         </Route>
       </Routes>

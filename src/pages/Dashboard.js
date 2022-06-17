@@ -1,7 +1,10 @@
 //index page for list of movies/shows
 import NavBar from "../components/NavBar";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Dashboard = (props) => {
+
   return (
     <>
       <NavBar />
