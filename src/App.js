@@ -30,6 +30,7 @@ const URL = 'http://localhost:4000/bingelist/'
 
 const [dashboardShows, setDashboardShows] = useState(null)
 
+
 const getShows = async () => {
   const response = await fetch(URL)
   const data = await response.json()
