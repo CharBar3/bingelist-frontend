@@ -26,9 +26,10 @@ function App(props) {
 //   }
 // })
 
-const URL = 'http://localhost:4000/bingelist'
+const URL = 'http://localhost:4000/bingelist/'
 
-const [dashoboardShows, setDashboardShows] = useState([])
+const [dashboardShows, setDashboardShows] = useState(null)
+
 
 const getShows = async () => {
   const response = await fetch(URL)
@@ -36,6 +37,34 @@ const getShows = async () => {
   setDashboardShows(data)
 }
 
+const createShow = async (show) => {
+  await fetch(URL, {
+    method: "POST",
+    headers: {
+      'Content-type': 'Application/json'
+    },
+    body: JSON.stringify(show)
+  });
+  getShows();
+};
+
+const updateShow = async (updatedShow, id) => {
+  await fetch(URL + id, {
+    method: "PUT",
+    headers: {
+      'Content-type': 'Application/json'
+    },
+    body: JSON.stringify(updatedShow)
+  });
+  getShows();
+};
+
+const deleteShow = async (id) => {
+  await fetch(URL + id, {
+    method: "DELETE"
+  });
+  getShows();
+};
   
   // useEffect(() => {
   //   const unsubscribe = auth.onAuthStateChanged(user => setUser(user))
@@ -49,9 +78,24 @@ const getShows = async () => {
       <button onClick={getShows}>getShows</button>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="search" element={<Search />} />
-        <Route path="bingelist" element={<Dashboard getShows={getShows} dashoboardShows={dashoboardShows}/>}>
-          <Route path=":id" element={<SeriesShow />} />
+        <Route path="search" element={<Search createShow={createShow} />} />
+        <Route path="bingelist" element=
+          {
+            <Dashboard
+              getShows={getShows} 
+              dashboardShows={dashboardShows}
+              deleteShow={deleteShow}
+            />
+          }
+        >
+          <Route path=":id" element=
+            {
+              <SeriesShow
+                updateShow={updateShow}
+                dashboardShows={dashboardShows}
+              />
+            }
+          />
         </Route>
       </Routes>
     </div>
