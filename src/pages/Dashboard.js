@@ -1,6 +1,12 @@
 //index page for list of movies/shows
 import NavBar from "../components/NavBar";
+import { useEffect } from "react";
 const Dashboard = (props) => {
+
+  // useEffect(() => {
+  //   props.getShows()
+  // }, [])
+
   return (
     <>
       <NavBar />
@@ -15,8 +21,6 @@ const Dashboard = (props) => {
             <h1>Title:{show.showTitle}</h1>
             <h3>Seaons: {show.seasons.length}</h3>
             <h3>User Rating: {show.userRating}</h3>
-
-          
           </div>
         );
       })}

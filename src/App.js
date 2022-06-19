@@ -12,9 +12,9 @@ import { Routes } from 'react-router-dom';
 
 
 function App(props) {
-  // const [ user, setUser ] = useState(null)
+const [ user, setUser ] = useState(null)
 
-  // user token add to requests to express
+// user token add to requests to express
 // const token = await user.getIdToken()
 // console.log(token)
 
@@ -32,16 +32,28 @@ const [dashboardShows, setDashboardShows] = useState(null)
 
 
 const getShows = async () => {
-  const response = await fetch(URL)
+  if(!user) return;
+  const token = await user.getIdToken()
+  console.log(token)
+  const response = await fetch(URL, {
+    method: 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
+  })
   const data = await response.json()
   setDashboardShows(data)
 }
 
 const createShow = async (show) => {
+  if(!user) return;
+  const token = await user.getIdToken()
+  console.log(token)
   await fetch(URL, {
     method: "POST",
     headers: {
-      'Content-type': 'Application/json'
+      'Content-type': 'Application/json',
+      'Authorization': 'Bearer ' + token
     },
     body: JSON.stringify(show)
   });
@@ -49,10 +61,14 @@ const createShow = async (show) => {
 };
 
 const updateShow = async (updatedShow, id) => {
+  if(!user) return;
+  const token = await user.getIdToken()
+  console.log(token)
   await fetch(URL + id, {
     method: "PUT",
     headers: {
-      'Content-type': 'Application/json'
+      'Content-type': 'Application/json',
+      'Authorization': 'Bearer ' + token
     },
     body: JSON.stringify(updatedShow)
   });
@@ -60,18 +76,22 @@ const updateShow = async (updatedShow, id) => {
 };
 
 const deleteShow = async (id) => {
+  if(!user) return;
+  const token = await user.getIdToken()
+  console.log(token)
   await fetch(URL + id, {
-    method: "DELETE"
+    method: "DELETE",
+    'Authorization': 'Bearer ' + token
   });
   getShows();
 };
   
-  // useEffect(() => {
-  //   const unsubscribe = auth.onAuthStateChanged(user => setUser(user))
-  //   return () => {
-  //     unsubscribe()
-  //   }
-  // }, [])
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => setUser(user))
+    return () => {
+      unsubscribe()
+    }
+  }, [])
   
   return (
     <div className="App">
