@@ -1,17 +1,20 @@
 //home/login page with about info
-import NavBar from "../components/NavBar";
-import { Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
+import About from "../components/About";
 
-const Home = () => {
+const Home = (props) => {
   
 
   return (
-    <>
       <div>
         <h1>Home Page</h1>
-        <p>about information here</p>
+        {props.user && 
+        <Link to = '/bingelist/dashboard'>
+          <div>Click here to continue to your Dashbaord</div>
+        </Link>
+        }
+        <About />
       </div>
-    </>
   )
 }
 

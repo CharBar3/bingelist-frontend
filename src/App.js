@@ -8,8 +8,7 @@ import Dashboard from './pages/Dashboard';
 import SeriesShow from './pages/SeriesShow';
 import { Routes, Route } from 'react-router-dom';
 
-
-function App() {
+function App(props) {
 const [ user, setUser ] = useState(null)
 
 // user token add to requests to express
@@ -99,7 +98,7 @@ const deleteShow = async (id) => {
       <NavBar/>
       <button onClick={getShows}>getShows</button>
       <Routes>
-        <Route path="bingelist" element={<Home />} />
+        <Route path="bingelist" element={<Home user = {props.user}/>} />
         <Route path="bingelist/search" element={<Search createShow={createShow} />} />
         <Route path="bingelist/dashboard" element=
           {
