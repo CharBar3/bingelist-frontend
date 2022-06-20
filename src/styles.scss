@@ -12,13 +12,11 @@
     padding: 3px;
     width: 95%;
     height: 80%;
-    border: 2px solid lightgray;
     background-color: lightgray;
 
     .episodeCard {
         margin: 0 auto;
         width: 98%;
-        border: 2px solid greenyellow;
         background-color: greenyellow;
 
         .epButton {
@@ -31,13 +29,13 @@
         }
 
         #prevEp {
-            bottom: 405px;
-            left: 20px;
+            bottom: 48%;
+            left: 6%;
         }
 
         #nextEp {
-            bottom: 405px;
-            right: 20px;
+            bottom: 48%;
+            right: 6%;
         }
 
         h3 {
@@ -46,13 +44,15 @@
         }
 
         #title {
-            bottom: 430px;
-            left: 120px
+            top: 40%;
+            left: 30%;
+            right: 30%;
         }
 
         #number {
-            bottom: 390px;
-            left: 135px;
+            bottom: 40%;
+            left: 34%;
+            right: 34%;
         }
 
         img {
@@ -60,6 +60,55 @@
             height: 300px;
             width: 96%;
             object-fit: cover;
+        }
+    }
+
+    .seasonSelector {
+        margin: 0 auto;
+        margin-top: 8px;
+        padding: 3px;
+        background-color: gray;
+
+        #season {
+            margin: 3px;
+            background-color: lightgray;
+            height: 40px;
+            width: 300px;
+            text-align: center;
+        }
+
+        #episodeChecklist {
+            margin: 3px;
+            background-color: lightgray;
+        }
+    }
+
+    .comments {
+        margin: 0 auto;
+        margin-top: 8px;
+        width: 98%;
+        padding: 3px;
+        background-color: greenyellow;
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                background-color: lightgray;
+                margin: 0 15%;
+            }
+        }
+
+        #userComment {
+            background-color: lightgray;
+            width: 80%;
+            height: 100px;
+        }
+
+        #submitComment {
+            background-color: blue;
+            color: blanchedalmond;
         }
     }
 }
