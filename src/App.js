@@ -9,9 +9,6 @@ import SeriesShow from './pages/SeriesShow';
 import { Routes, Route } from 'react-router-dom';
 
 
-
-
-
 function App() {
 const [ user, setUser ] = useState(null)
 
@@ -47,7 +44,6 @@ const getShows = async () => {
   const data = await response.json()
   console.log({data})
   setDashboardShows(data)
-  console.log({dashboardShows})
 }
 
 const createShow = async (show) => {
@@ -98,7 +94,6 @@ const deleteShow = async (id) => {
     }
   }, [])
 
-console.log(dashboardShows)
   return (
     <div className="App">
       <NavBar/>

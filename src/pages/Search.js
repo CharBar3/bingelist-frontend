@@ -1,16 +1,13 @@
 import { useState } from 'react'
 import InfoBox from '../components/InfoBox'
-import NavBar from '../components/NavBar'
-
+import SearchShowBox from '../components/SearchShowBox'
 
 const Search = () => {
-    // State Variables
     const [showSearch, setShowSearch] = useState('no results yet')
 
     const createURL = 'http://localhost:4000/bingelist/'
 
     const addToBingeList = async (tvShowAdd) => {
-        console.log(JSON.stringify(tvShowAdd))
         await fetch(createURL, {
             method: 'POST',
             headers: {
@@ -18,10 +15,7 @@ const Search = () => {
             }, 
             body: JSON.stringify(tvShowAdd)
         })
-        // const data = await response.json()
-        // console.log(data)
-
-      }
+    }
 
     const showIdApiCall = async (showID, backdrop_path, poster_path) => {
         const backdrop = `https://image.tmdb.org/t/p/w500/${backdrop_path}`
@@ -30,31 +24,62 @@ const Search = () => {
         const URL = `https://api.themoviedb.org/3/tv/${showID}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
         const response = await fetch(URL)
         const data = await response.json()
-        console.log(typeof data.seasons.toString())
 
+        const seasons = []
+        
+        for (let index = 1; index < data.seasons.length; index++) {
+
+            const seasonURL = `https://api.themoviedb.org/3/tv/${showID}/season/${index}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+            const response = await fetch (seasonURL)
+            const data = await response.json()
+
+            const episodes = []
+            for (let i = 0; i < data.episodes.length; i++) {
+                const episode = data.episodes[i]
+                episodes.push({
+                    episodeNumber: episode.episode_number,
+                    episodeTitle: episode.name,
+                    watched: false,
+                    comments: ''
+                })
+            }
+            seasons.push({
+                episodes: episodes,
+                seasonPoster: `https://image.tmdb.org/t/p/w500/${data.poster_path}`
+            })
+        }
+        
         const newBingeListShow = {
-            showTitle: data.name.toString(),
+            showTitle: data.name,
             userRating: 1,
             showBackdrop: backdrop,
             showPoster: poster,
+            seasons: seasons
         }
-        console.log(newBingeListShow)
         addToBingeList(newBingeListShow)
     }
 
 
     const searchResults = (data) => {
-        const transformedData = data.results.map(({name, media_type, id, backdrop_path, poster_path}, index) => {
+        const transformedData = data.results.map(({name, media_type, id, backdrop_path, poster_path, overview}, index, ) => {
             if (name && media_type === "tv") {
-            const srcConvert = `https://image.tmdb.org/t/p/w500/${poster_path}`
+            const posterSrcConvert = `https://image.tmdb.org/t/p/w500/${poster_path}`
+            const backdropSrcConvert = `https://image.tmdb.org/t/p/w500/${backdrop_path}`
             return ( 
             <>
-            <InfoBox
+            {/* <InfoBox
             title={name}
             media_type={media_type}
             img={srcConvert}
             key={index}
+            /> */}
+
+            <SearchShowBox
+            title={name}
+            background={backdropSrcConvert}
             />
+
+            <p> {overview} </p>
             <button onClick={() => showIdApiCall(id, backdrop_path, poster_path)}>Add to BingeList</button>
             </>
             )
