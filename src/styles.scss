@@ -2,6 +2,64 @@
 //entire app
 
 
-.infoboxDiv{
+.infoboxDiv {
     border: 2px solid red;
+}
+
+.seriesShow {
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 3px;
+    width: 95%;
+    height: 80%;
+    border: 2px solid lightgray;
+    background-color: lightgray;
+
+    .episodeCard {
+        margin: 0 auto;
+        width: 98%;
+        border: 2px solid greenyellow;
+        background-color: greenyellow;
+
+        .epButton {
+            margin: 6px;
+            height: 70px;
+            width: 70px;
+            position: absolute;
+            background-color: blue;
+            color: blanchedalmond;
+        }
+
+        #prevEp {
+            bottom: 405px;
+            left: 20px;
+        }
+
+        #nextEp {
+            bottom: 405px;
+            right: 20px;
+        }
+
+        h3 {
+            position: absolute;
+            color: blanchedalmond;
+        }
+
+        #title {
+            bottom: 430px;
+            left: 120px
+        }
+
+        #number {
+            bottom: 390px;
+            left: 135px;
+        }
+
+        img {
+            margin: 3px;
+            height: 300px;
+            width: 96%;
+            object-fit: cover;
+        }
+    }
 }
