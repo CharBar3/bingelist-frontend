@@ -1,21 +1,19 @@
 //index page for list of movies/shows
-import NavBar from "../components/NavBar";
 import { useEffect } from "react";
-const Dashboard = (props) => {
+const Dashboard = ({dashboardShows, getShows }) => {
+  useEffect(() => {
+    getShows()
+  }, [])
 
-  // useEffect(() => {
-  //   props.getShows()
-  // }, [])
-
+  // const hasData = () => {
   return (
     <>
-      <NavBar />
       <div>
         <h1>BingeList Dashboard</h1>
-        <button onClick={() => props.getShows()}>getShows</button>
+        <button onClick={() => getShows()}>getShows</button>
       </div>
       
-      {props.dashoboardShows.map((show, i) => {
+      {dashboardShows.map((show, i) => {
         return (
           <div key={i}>
             <h1>Title:{show.showTitle}</h1>
@@ -26,6 +24,18 @@ const Dashboard = (props) => {
       })}
     </>  
   )
+  // }
+
+  // const noData = () => {
+  //   return (
+  //     <div>
+  //       <h1>BingeList Dashboard</h1>
+  //       <button onClick={() => getShows()}>getShows</button>
+  //     </div>
+  //   )
+  // }
+
+  // return dashboardShows ? hasData() : noData()
 }
 
 export default Dashboard

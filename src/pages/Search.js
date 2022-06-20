@@ -80,7 +80,6 @@ const Search = () => {
 
     return (
         <>
-            <NavBar />
             <h1>Series Search</h1>
             <div>
                 <form onSubmit={handleSubmit}>

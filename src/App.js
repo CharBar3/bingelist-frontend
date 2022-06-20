@@ -6,12 +6,13 @@ import { auth } from './services/firebase'
 import NavBar from './components/NavBar';
 import Dashboard from './pages/Dashboard';
 import SeriesShow from './pages/SeriesShow';
-import { Route } from 'react-router-dom';
-import { Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 
 
-function App(props) {
+
+
+function App() {
 const [ user, setUser ] = useState(null)
 
 // user token add to requests to express
@@ -28,21 +29,25 @@ const [ user, setUser ] = useState(null)
 
 const URL = 'http://localhost:4000/bingelist/'
 
-const [dashboardShows, setDashboardShows] = useState(null)
+const [dashboardShows, setDashboardShows] = useState([])
 
 
 const getShows = async () => {
-  if(!user) return;
-  const token = await user.getIdToken()
-  console.log(token)
-  const response = await fetch(URL, {
-    method: 'GET',
-    headers: {
-      'Authorization': 'Bearer ' + token
-    }
-  })
+  // if(!user) return;
+  // const token = await user.getIdToken()
+  // console.log(token)
+  const response = await fetch(URL
+  //   , {
+  //   method: 'GET',
+  //   headers: {
+  //     'Authorization': 'Bearer ' + token
+  //   }
+  // }
+  )
   const data = await response.json()
+  console.log({data})
   setDashboardShows(data)
+  console.log({dashboardShows})
 }
 
 const createShow = async (show) => {
@@ -92,22 +97,24 @@ const deleteShow = async (id) => {
       unsubscribe()
     }
   }, [])
-  
+
+console.log(dashboardShows)
   return (
     <div className="App">
+      <NavBar/>
       <button onClick={getShows}>getShows</button>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="search" element={<Search createShow={createShow} />} />
-        <Route path="bingelist" element=
+        <Route path="bingelist" element={<Home />} />
+        <Route path="bingelist/search" element={<Search createShow={createShow} />} />
+        <Route path="bingelist/dashboard" element=
           {
             <Dashboard
               getShows={getShows} 
-              dashboardShows={dashboardShows}
+              dashboardShows={ dashboardShows }
               deleteShow={deleteShow}
             />
-          }
-        >
+          } />
+        {/* >
           <Route path=":id" element=
             {
               <SeriesShow
@@ -116,7 +123,7 @@ const deleteShow = async (id) => {
               />
             }
           />
-        </Route>
+        </Route> */}
       </Routes>
     </div>
   );
