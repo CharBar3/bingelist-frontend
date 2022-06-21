@@ -43,7 +43,7 @@ const getShows = async () => {
   // }
   )
   const data = await response.json()
-  console.log({data})
+  // console.log({data})
   setDashboardShows(data)
 }
 
