@@ -2,7 +2,7 @@ import React from 'react'
 import { login, logout } from '../services/firebase'
 import { useNavigate, Link } from 'react-router-dom'
 
-function NavBar() {
+function NavBar(props) {
   // const navigate = useNavigate()
   // redirects to the index/show page for all shows/ on login
   // const loginRedirect = () => {
@@ -23,10 +23,15 @@ function NavBar() {
                 <button onClick={logout}>logout</button>
         </div> */}
         <h1>BingeList</h1>
-        <Link to="/bingelist"> Home </Link>
-        <Link to="/bingelist/dashboard">Dashboard</Link>
+        <Link to="/bingelist/dashboard"> Home </Link>
+        {/* <Link to="/bingelist/dashboard">Dashboard</Link> */}
         <Link to="/bingelist/search"> Find New Show! </Link>
-        <Link to="/bingelist/about"> About </Link>
+        {/* This line of code shows the user whether they are logged in or not so the ? and the : 
+        are just like if else statements */}
+        { props.user
+        ? <p onClick= {logout} > Logout</p>
+        : <p onClick= {login} > Login</p>
+        }
     </div>
   )
 }
