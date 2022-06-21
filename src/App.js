@@ -9,9 +9,6 @@ import SeriesShow from './pages/SeriesShow';
 import { Routes, Route } from 'react-router-dom';
 
 
-
-
-
 function App() {
 const [ user, setUser ] = useState(null)
 
@@ -102,8 +99,11 @@ console.log(dashboardShows)
   return (
     <div className="App">
       <NavBar/>
-      <button onClick={getShows}>getShows</button>
+
+      {/* <button onClick={getShows}>getShows</button> */}
+
       <Routes>
+
         <Route path="bingelist" element={<Home />} />
         <Route path="bingelist/search" element={<Search createShow={createShow} />} />
         <Route path="bingelist/dashboard" element=
@@ -124,6 +124,14 @@ console.log(dashboardShows)
             }
           />
         </Route> */}
+        <Route path="/show/:id" element={
+          <SeriesShow
+          updateShow={updateShow}
+          dashboardShows={dashboardShows}
+           />
+        }>
+
+        </Route>
       </Routes>
     </div>
   );

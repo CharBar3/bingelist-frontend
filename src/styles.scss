@@ -1,7 +1,92 @@
 //nothing here for now, but this is connected to index.js and so will cascade through
 //entire app
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 75px;
+    background-color: aqua;
 
-.infoboxDiv{
-    border: 2px solid red;
+}
+
+.logo{
+    font-size: 30px;
+}
+
+.navLinks{
+   display: flex; 
+   justify-content: flex-end;
+   list-style: none;
+   width: 75%;
+}
+
+.link{
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+// Nav Mobile Button
+.mobile-menu-icon{
+    display: none;
+}
+
+// Dash Border header section
+.dashContainer{
+    // border: 3px solid rgb(42, 112, 52);
+    width: 500px;
+    display: flex;
+    margin: auto;
+    // justify-content: space-evenly;
+    flex-flow: column wrap;
+    flex-wrap: wrap;
+}
+
+.showContainer{
+    // border: 2px solid blue;
+    background-color: aliceblue;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+@media screen and (max-width: 780px){
+    .navLinks{
+        display: none;
+    }
+
+    .navLinksMobile{
+        position: absolute;
+        display: block;
+        list-style: none;
+        background-color: rgb(134, 36, 36);
+        left: 0;
+        top: 75px;
+        transition: all 0.5s ease-out;
+        width: 100%;
+    }
+
+    .link{
+       color: black;
+       text-align: center; 
+       padding: 32px;
+       width: 100%;
+       transition: all 0.5s ease;
+    }
+
+    .mobile-menu-icon{
+        display: block;
+        position: 30px;
+        background-color: black;
+        outline: none;
+        top: 15px;
+        right: 25px
+    }
 }

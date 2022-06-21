@@ -1,5 +1,6 @@
 //index page for list of movies/shows
 import { useEffect } from "react";
+import {  Link } from 'react-router-dom'
 const Dashboard = ({dashboardShows, getShows }) => {
   useEffect(() => {
     getShows()
@@ -8,34 +9,24 @@ const Dashboard = ({dashboardShows, getShows }) => {
   // const hasData = () => {
   return (
     <>
-      <div>
-        <h1>BingeList Dashboard</h1>
-        <button onClick={() => getShows()}>getShows</button>
-      </div>
-      
-      {dashboardShows.map((show, i) => {
+    <header className="dashHeader">
+      <h1>Dashboard</h1>
+      <button onClick={() => getShows()}>getShows</button>
+    </header>
+      <div className="dashContainer">
+    {dashboardShows.map((show, i) => {
         return (
-          <div key={i}>
-            <h1>Title:{show.showTitle}</h1>
-            <h3>Seaons: {show.seasons.length}</h3>
-            <h3>User Rating: {show.userRating}</h3>
+          <Link to={`/bingeList/${show._id}`}>
+          <div key={i} className="showContainer">
+              <h1>{show.showTitle}</h1>
+              <h3>Seaons: {show.seasons.length}</h3>
+              <h3>User Rating: {show.userRating}</h3>
           </div>
+          </Link>
         );
       })}
+    </div> 
     </>  
-  )
-  // }
-
-  // const noData = () => {
-  //   return (
-  //     <div>
-  //       <h1>BingeList Dashboard</h1>
-  //       <button onClick={() => getShows()}>getShows</button>
-  //     </div>
-  //   )
-  // }
-
-  // return dashboardShows ? hasData() : noData()
-}
+  )}
 
 export default Dashboard

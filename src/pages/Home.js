@@ -1,6 +1,6 @@
 //home/login page with about info
-import NavBar from "../components/NavBar";
-import { Outlet } from "react-router-dom";
+// import NavBar from "../components/NavBar";
+// clear
 
 const Home = () => {
   
