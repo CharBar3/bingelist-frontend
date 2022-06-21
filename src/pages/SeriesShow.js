@@ -1,15 +1,66 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const SeriesShow = ({ dashboardShows, getShows }) => {
-  useEffect(() => {
-    getShows()
-  }, [])
+  let params = useParams()  
+  // const tvShow = dashboardShows.find(element => element._id === params.id)
+
+
+  const [tvShow, updateTvShow] = useState(dashboardShows.find(element => element._id === params.id))
+
+
+  // useEffect(() => {
+  //   getShows()
+  // }, [])
+
+
+
+
+
+
   
-  console.log(dashboardShows)
+  console.log(tvShow)
+
+  const handleChange = (e) => {
+    console.log(e.target.name)
+    // updateTvShow(prevStat => {
+    //   console.log(prevStat)
+    // })
+  }
+
+  const seasons = tvShow.seasons.map(({episodes}, index)=>{
+
+   return( episodes.map(({episodeNumber, episodeTitle, watched}) => {
+
+
+      let watchedCheckbox = "null"
+
+      if (watched === true) {
+        watchedCheckbox = <input type="checkbox" name={`S${index},E${episodeNumber}`} onClick={handleChange} checked/>
+      } else {
+        watchedCheckbox = <input type="checkbox" name={`S${index}E${episodeNumber}`} onClick={handleChange} />
+      }
+
+      return (
+        <div>
+          <h3>Season {index + 1} Episode {episodeNumber}</h3>
+          <h4>Title {episodeTitle}</h4>
+          <p> Watched ? {watchedCheckbox} </p>
+        </div>
+      )
+
+      })
+   )
+  })
 
   return (
     <>
-      <div className="seriesShow">
+      <h1>{tvShow.showTitle}</h1>
+      {seasons}
+
+
+
+      {/* <div className="seriesShow">
         <h1>House</h1>
         <div className="episodeCard">
           <button className="epButton" id="prevEp">Previous Episode</button>
@@ -52,7 +103,7 @@ const SeriesShow = ({ dashboardShows, getShows }) => {
               </form>
             </div>
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
