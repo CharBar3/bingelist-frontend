@@ -10,10 +10,8 @@ import { Routes, Route } from 'react-router-dom';
 import { getNextKeyDef } from '@testing-library/user-event/dist/keyboard/getNextKeyDef';
 
 
-
-
-
 function App(props) {
+
 const [ user, setUser ] = useState(null)
 
 useEffect(() => {
@@ -53,13 +51,12 @@ const getShows = async () => {
   // }
   )
   const data = await response.json()
-  console.log({data})
+  // console.log({data})
   setDashboardShows(data)
-  console.log({dashboardShows})
 }
 
 const createShow = async (show) => {
-  if(!user) return;
+  // if(!user) return;
   const token = await user.getIdToken()
   console.log(token)
   await fetch(URL, {
@@ -74,7 +71,7 @@ const createShow = async (show) => {
 };
 
 const updateShow = async (updatedShow, id) => {
-  if(!user) return;
+  // if(!user) return;
   const token = await user.getIdToken()
   console.log(token)
   await fetch(URL + id, {
@@ -89,7 +86,7 @@ const updateShow = async (updatedShow, id) => {
 };
 
 const deleteShow = async (id) => {
-  if(!user) return;
+  // if(!user) return;
   const token = await user.getIdToken()
   console.log(token)
   await fetch(URL + id, {
@@ -101,11 +98,10 @@ const deleteShow = async (id) => {
   
 
 
-console.log(dashboardShows)
   return (
     <div className="App">
+
       <NavBar user  = {user}/>
-      <button onClick={getShows}>getShows</button>
       <Routes>
         <Route path="bingelist" element={<Home user = {user}/>} />
         <Route path="bingelist/search" element={<Search createShow={createShow} />} />
@@ -117,16 +113,16 @@ console.log(dashboardShows)
               deleteShow={deleteShow}
             />
           } />
-        {/* >
-          <Route path=":id" element=
-            {
-              <SeriesShow
-                updateShow={updateShow}
-                dashboardShows={dashboardShows}
-              />
-            }
-          />
-        </Route> */}
+
+        <Route path="bingelist/:id" element=
+          {
+            <SeriesShow 
+              getShows={ getShows }
+              updateShow={updateShow} 
+              dashboardShows={dashboardShows} 
+            />
+          } 
+        />  
       </Routes>
     </div>
   );

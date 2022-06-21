@@ -1,6 +1,6 @@
 import React from 'react'
-import { login, logout } from '../services/firebase'
-import { useNavigate, Link } from 'react-router-dom'
+// import { login, logout } from '../services/firebase'
+import {  Link } from 'react-router-dom'
 
 function NavBar(props) {
   // const navigate = useNavigate()
@@ -13,6 +13,7 @@ function NavBar(props) {
   // }
 
   return (
+
     <div className='container'>
          {/* <h3>BingeList</h3>
          <div className="menu"> */}
@@ -32,6 +33,7 @@ function NavBar(props) {
         ? <p onClick= {logout} > Logout</p>
         : <p onClick= {login} > Login</p>
         }
+
     </div>
   )
 }
