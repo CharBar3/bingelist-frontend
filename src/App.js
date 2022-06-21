@@ -46,7 +46,7 @@ const getShows = async () => {
 }
 
 const createShow = async (show) => {
-  if(!user) return;
+  // if(!user) return;
   const token = await user.getIdToken()
   console.log(token)
   await fetch(URL, {
@@ -61,7 +61,7 @@ const createShow = async (show) => {
 };
 
 const updateShow = async (updatedShow, id) => {
-  if(!user) return;
+  // if(!user) return;
   const token = await user.getIdToken()
   console.log(token)
   await fetch(URL + id, {
@@ -76,7 +76,7 @@ const updateShow = async (updatedShow, id) => {
 };
 
 const deleteShow = async (id) => {
-  if(!user) return;
+  // if(!user) return;
   const token = await user.getIdToken()
   console.log(token)
   await fetch(URL + id, {
@@ -108,16 +108,15 @@ const deleteShow = async (id) => {
               deleteShow={deleteShow}
             />
           } />
-        {/* >
-          <Route path=":id" element=
-            {
-              <SeriesShow
-                updateShow={updateShow}
-                dashboardShows={dashboardShows}
-              />
-            }
-          />
-        </Route> */}
+        <Route path="bingelist/:id" element=
+          {
+            <SeriesShow 
+              getShows={ getShows }
+              updateShow={updateShow} 
+              dashboardShows={dashboardShows} 
+            />
+          } 
+        />  
       </Routes>
     </div>
   );
