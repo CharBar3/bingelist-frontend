@@ -13,6 +13,7 @@
     height: 75px;
     background-color: aqua;
 
+
 }
 
 .logo{
@@ -88,5 +89,115 @@
         outline: none;
         top: 15px;
         right: 25px
+  }
+.infoboxDiv {
+    border: 2px solid red;
+}
+
+.seriesShow {
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 3px;
+    width: 95%;
+    height: 80%;
+    background-color: lightgray;
+
+    .episodeCard {
+        margin: 0 auto;
+        width: 98%;
+        background-color: greenyellow;
+
+        .epButton {
+            margin: 6px;
+            height: 70px;
+            width: 70px;
+            position: absolute;
+            background-color: blue;
+            color: blanchedalmond;
+        }
+
+        #prevEp {
+            bottom: 48%;
+            left: 6%;
+        }
+
+        #nextEp {
+            bottom: 48%;
+            right: 6%;
+        }
+
+        h3 {
+            position: absolute;
+            color: blanchedalmond;
+        }
+
+        #title {
+            top: 40%;
+            left: 30%;
+            right: 30%;
+        }
+
+        #number {
+            bottom: 40%;
+            left: 34%;
+            right: 34%;
+        }
+
+        img {
+            margin: 3px;
+            height: 300px;
+            width: 96%;
+            object-fit: cover;
+        }
+    }
+
+    .seasonSelector {
+        margin: 0 auto;
+        margin-top: 8px;
+        padding: 3px;
+        background-color: gray;
+
+        #season {
+            margin: 3px;
+            background-color: lightgray;
+            height: 40px;
+            width: 300px;
+            text-align: center;
+        }
+
+        #episodeChecklist {
+            margin: 3px;
+            background-color: lightgray;
+        }
+    }
+
+    .comments {
+        margin: 0 auto;
+        margin-top: 8px;
+        width: 98%;
+        padding: 3px;
+        background-color: greenyellow;
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                background-color: lightgray;
+                margin: 0 15%;
+            }
+        }
+
+        #userComment {
+            background-color: lightgray;
+            width: 80%;
+            height: 100px;
+        }
+
+        #submitComment {
+            background-color: blue;
+            color: blanchedalmond;
+        }
+
     }
 }

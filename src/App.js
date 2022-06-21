@@ -9,7 +9,8 @@ import SeriesShow from './pages/SeriesShow';
 import { Routes, Route } from 'react-router-dom';
 
 
-function App() {
+function App(props) {
+
 const [ user, setUser ] = useState(null)
 
 // user token add to requests to express
@@ -44,11 +45,10 @@ const getShows = async () => {
   const data = await response.json()
   console.log({data})
   setDashboardShows(data)
-  console.log({dashboardShows})
 }
 
 const createShow = async (show) => {
-  if(!user) return;
+  // if(!user) return;
   const token = await user.getIdToken()
   console.log(token)
   await fetch(URL, {
@@ -63,7 +63,7 @@ const createShow = async (show) => {
 };
 
 const updateShow = async (updatedShow, id) => {
-  if(!user) return;
+  // if(!user) return;
   const token = await user.getIdToken()
   console.log(token)
   await fetch(URL + id, {
@@ -78,7 +78,7 @@ const updateShow = async (updatedShow, id) => {
 };
 
 const deleteShow = async (id) => {
-  if(!user) return;
+  // if(!user) return;
   const token = await user.getIdToken()
   console.log(token)
   await fetch(URL + id, {
@@ -95,7 +95,6 @@ const deleteShow = async (id) => {
     }
   }, [])
 
-console.log(dashboardShows)
   return (
     <div className="App">
       <NavBar/>
@@ -103,8 +102,7 @@ console.log(dashboardShows)
       {/* <button onClick={getShows}>getShows</button> */}
 
       <Routes>
-
-        <Route path="bingelist" element={<Home />} />
+        <Route path="bingelist" element={<Home user = {props.user}/>} />
         <Route path="bingelist/search" element={<Search createShow={createShow} />} />
         <Route path="bingelist/dashboard" element=
           {
@@ -114,24 +112,16 @@ console.log(dashboardShows)
               deleteShow={deleteShow}
             />
           } />
-        {/* >
-          <Route path=":id" element=
-            {
-              <SeriesShow
-                updateShow={updateShow}
-                dashboardShows={dashboardShows}
-              />
-            }
-          />
-        </Route> */}
-        <Route path="/show/:id" element={
-          <SeriesShow
-          updateShow={updateShow}
-          dashboardShows={dashboardShows}
-           />
-        }>
 
-        </Route>
+        <Route path="bingelist/:id" element=
+          {
+            <SeriesShow 
+              getShows={ getShows }
+              updateShow={updateShow} 
+              dashboardShows={dashboardShows} 
+            />
+          } 
+        />  
       </Routes>
     </div>
   );
