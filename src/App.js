@@ -7,11 +7,19 @@ import NavBar from './components/NavBar';
 import Dashboard from './pages/Dashboard';
 import SeriesShow from './pages/SeriesShow';
 import { Routes, Route } from 'react-router-dom';
+import { getNextKeyDef } from '@testing-library/user-event/dist/keyboard/getNextKeyDef';
 
 
 function App(props) {
 
 const [ user, setUser ] = useState(null)
+
+useEffect(() => {
+  const unsubscribe = auth.onAuthStateChanged(user => setUser(user))
+  return () => {
+    unsubscribe()
+  }
+}, [])
 
 // user token add to requests to express
 // const token = await user.getIdToken()
@@ -88,21 +96,14 @@ const deleteShow = async (id) => {
   getShows();
 };
   
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => setUser(user))
-    return () => {
-      unsubscribe()
-    }
-  }, [])
+
 
   return (
     <div className="App">
-      <NavBar/>
 
-      {/* <button onClick={getShows}>getShows</button> */}
-
+      <NavBar user  = {user}/>
       <Routes>
-        <Route path="bingelist" element={<Home user = {props.user}/>} />
+        <Route path="bingelist" element={<Home user = {user}/>} />
         <Route path="bingelist/search" element={<Search createShow={createShow} />} />
         <Route path="bingelist/dashboard" element=
           {
