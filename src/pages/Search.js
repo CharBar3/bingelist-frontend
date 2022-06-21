@@ -2,20 +2,20 @@ import { useState } from 'react'
 import InfoBox from '../components/InfoBox'
 import SearchShowBox from '../components/SearchShowBox'
 
-const Search = () => {
+const Search = ({addToBingeList}) => {
     const [showSearch, setShowSearch] = useState('no results yet')
 
-    const createURL = 'http://localhost:4000/bingelist/'
+    // const createURL = 'http://localhost:4000/bingelist/'
 
-    const addToBingeList = async (tvShowAdd) => {
-        await fetch(createURL, {
-            method: 'POST',
-            headers: {
-                'Content-type': 'Application/json'
-            }, 
-            body: JSON.stringify(tvShowAdd)
-        })
-    }
+    // const addToBingeList = async (tvShowAdd) => {
+    //     await fetch(createURL, {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-type': 'Application/json'
+    //         }, 
+    //         body: JSON.stringify(tvShowAdd)
+    //     })
+    // }
 
     const showIdApiCall = async (showID, backdrop_path, poster_path) => {
         const backdrop = `https://image.tmdb.org/t/p/w500/${backdrop_path}`

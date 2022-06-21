@@ -7,7 +7,7 @@ import NavBar from './components/NavBar';
 import Dashboard from './pages/Dashboard';
 import SeriesShow from './pages/SeriesShow';
 import { Routes, Route } from 'react-router-dom';
-import { getNextKeyDef } from '@testing-library/user-event/dist/keyboard/getNextKeyDef';
+// import { getNextKeyDef } from '@testing-library/user-event/dist/keyboard/getNextKeyDef';
 
 
 function App(props) {
@@ -37,18 +37,32 @@ const URL = 'http://localhost:4000/bingelist/'
 
 const [dashboardShows, setDashboardShows] = useState([])
 
+const addToBingeList = async (tvShowAdd) => {
+  if(!user) return;
+  const token = await user.getIdToken()
+  console.log(token)
+  await fetch(URL, {
+      method: 'POST',
+      headers: {
+          'Content-type': 'Application/json',
+          'Authorization': 'Bearer ' + token
+      }, 
+      body: JSON.stringify(tvShowAdd)
+  })
+}
 
 const getShows = async () => {
-  // if(!user) return;
-  // const token = await user.getIdToken()
-  // console.log(token)
+  console.log(user)
+  if(!user) return;
+  const token = await user.getIdToken()
+  console.log(token)
   const response = await fetch(URL
-  //   , {
-  //   method: 'GET',
-  //   headers: {
-  //     'Authorization': 'Bearer ' + token
-  //   }
-  // }
+    , {
+    method: 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
+  }
   )
   const data = await response.json()
   // console.log({data})
@@ -104,7 +118,7 @@ const deleteShow = async (id) => {
       <NavBar user  = {user}/>
       <Routes>
         <Route path="bingelist" element={<Home user = {user}/>} />
-        <Route path="bingelist/search" element={<Search createShow={createShow} />} />
+        <Route path="bingelist/search" element={<Search createShow={createShow} addToBingeList={addToBingeList} />} />
         <Route path="bingelist/dashboard" element=
           {
             <Dashboard
