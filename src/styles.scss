@@ -1,14 +1,10 @@
-//nothing here for now, but this is connected to index.js and so will cascade through
-//entire app
-
-
 $primary-color: #1b343c;
 $secondary-color: #3e7a96;
 $alternative-color: #619eb3;
 $dark: #262626;
 $highlight: #7aecf1;
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -30,32 +26,173 @@ $highlight: #7aecf1;
     border-radius: 10px;
 }
 
-body {
-    background-color: white;
+@mixin title-card {
+    margin: 0 auto;
+    margin-top: 15px;
+    text-align: center;
+    width: 96%;
+    height: 80px;
+    padding-top: 35px;
+    padding-bottom: 80px;
+    color: $secondary-color;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    border: 3px solid $dark;
+    text-shadow: 2px 0 0 $highlight, -2px 0 0 $highlight, 0 2px 0 $highlight, 0 -2px 0 $highlight, 1px 1px $highlight, -1px -1px 0 $highlight, 1px -1px 0 $highlight, -1px 1px 0 $highlight;
 }
 
+body {
+    background-color: $dark;
+}
+
+// NAVBAR
+.navBarContainer {
+    background-color: $primary-color;
+    color: $secondary-color;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    // Login button  IS HIDDEN TO NON UNTIL I FIISH THE NAV BAR
+    .login {
+        display: inline;
+        margin-right: 15px;
+        // background-color: rgb(175, 32, 32);
+        // padding-top: 20px;
+        // width: 10%;
+        // margin: auto;
+        //hidden for now untill @media is added====================================>
+        //talk with tuesday to see how she wants to handle this
+        // display: none;
+
+        &:hover {
+            color: $highlight;
+            font-size: 1.3rem;
+            box-shadow: rgba(93, 50, 50, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+    }
+
+    .navLink {
+        //border: 1px solid red;
+        margin-right: 12px;
+        font-size: 1.2rem;
+        text-decoration: none;
+        color: $secondary-color;
+        font-weight: bold;
+
+        &:hover {
+            color: $highlight;
+            font-size: 1.3rem;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+    }
+
+    //Hamburger Styles=================>
+    .hamburger {
+        display: none;
+    }
+
+    // @media(max-width: 768px) {
+    //     a.navLink {
+    //         display: none;
+    //         // border: 2px solid red;
+    //     }
+
+    //     .hamburger {
+    //         // border: 2px solid red;
+    //         // outline: none;
+    //         display: inline;
+    //         background: none;
+    //         margin-right: 10px;
+    //         cursor: pointer;
+    //         width: 35px;
+    //         height: 30px;
+    //         display: block;
+    //         position: relative;
+    //         // determines stack level of the element
+    //         z-index: 1;
+    //     }
+
+    //     .hamburger span {
+    //         display: block;
+    //         width: 98%;
+    //         height: 4px;
+    //         margin-bottom: 5px;
+    //         position: relative;
+    //         background-color: pink;
+    //         border-radius: 3px;
+    //     }
+    // }
+}
+
+//DashBoard Styles
+.dashHeader {
+    // border: 3px solid rgb(9, 117, 9);
+    // background-color: aqua;
+    width: 40%;
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+    color: $secondary-color;
+}
+
+.dashContainer {
+    @include outer-container;
+    // margin:auto;
+    // margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    // border: 3px solid red;
+    // border-radius: 10px;
+    // height: 100vh;
+    // width: 50%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    box-shadow: rgba(28, 28, 29, 0.767) 0px 6px 12px -2px, rgba(0, 0, 0, 0.74) 0px 3px 7px -3px;
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .showContainer {
+        @include inner-container;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        padding: 5px;
+        box-shadow: rgba(28, 28, 29, 0.767) 0px 6px 12px -2px, rgba(0, 0, 0, 0.74) 0px 3px 7px -3px;
+
+        h1 {
+            @include title-card;
+        }
+    }
+}
+
+//Search page styles
 .search-container {
     @include outer-container;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    box-shadow: rgba(28, 28, 29, 0.767) 0px 6px 12px -2px, rgba(0, 0, 0, 0.74) 0px 3px 7px -3px;
 
     .search-show {
         @include inner-container;
+        box-shadow: rgba(28, 28, 29, 0.767) 0px 6px 12px -2px, rgba(0, 0, 0, 0.74) 0px 3px 7px -3px;
 
         .titlecard {
             margin: 20px;
             padding-top: 15px;
 
             h1 {
-                margin: 0 auto;
-                margin-top: 15px;
-                text-align: center;
-                width: 96%;
-                height: 80px;
-                padding-top: 35px;
-                color: $secondary-color;
-                background-position: center;
-                background-size: cover;
-                border-radius: 10px;
-                border: 3px solid $dark;
+                @include title-card;
             }
         }
 
@@ -68,13 +205,14 @@ body {
             height: 70px;
             border-radius: 15px;
 
-            &:hover, &:active {
-                background: linear-gradient(269deg, 
-                    $secondary-color,
-                    $alternative-color, 
-                    $highlight, 
-                    $alternative-color, 
-                    $secondary-color);
+            &:hover,
+            &:active {
+                background: linear-gradient(269deg,
+                        $secondary-color,
+                        $alternative-color,
+                        $highlight,
+                        $alternative-color,
+                        $secondary-color);
                 background-size: 300% 300%;
                 animation: gradient-animation 3s ease infinite;
             }
@@ -83,9 +221,11 @@ body {
                 0% {
                     background-position: 0% 50%;
                 }
+
                 50% {
                     background-position: 100% 50%;
                 }
+
                 100% {
                     background-position: 0% 50%;
                 }
@@ -95,69 +235,10 @@ body {
                 width: 90%;
             }
         }
-        
+
     }
 }
 
-
-// NAVBAR
-.navBarContainer{
-    background-color:   rgba(15, 34, 40, 0.621);
-    padding-top: 15px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-   
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.navLink{
-//   border: 1px solid red;
-
-  margin-right: 12px;
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-.navLink:hover{
-    color:#fff;
-    font-size: 1.3rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
-
-//Hamburger Styles=================>
-.hamburger{
-     // display: none;
-
-    display: none;
-   
-}
-
-// Login button  IS HIDDEN TO NON UNTIL I FIISH THE NAV BAR
-.login{
-    background-color: rgb(175, 32, 32);
-    // padding-top: 20px;
-    width: 10%;
-    // margin: auto;
-    
-    
-    
-    //hidden for now untill @media is added====================================>
-    //talk with tuesday to see how she wants to handle this
-    // display: none;
-}
-
-//DashBoard Styles
-.dashHeader{
-    // border: 3px solid rgb(9, 117, 9);
-    // background-color: aqua;
-    width: 40%;
-    margin: auto;
-    margin-top: 10px;
-    padding: 10px;
-    font-family: 'Poppins', sans-serif;
-}
 // Shows button
 // .getShowButton{
 //     background-color: aqua;
@@ -176,40 +257,12 @@ body {
 //     color:white;
 // }
 
-.dashContainer{
-    margin:auto;
-    margin-top: 10px;
-    font-family: 'Poppins', sans-serif;
-    // border: 3px solid red;
-    border-radius: 10px;
-    // height: 100vh;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-}
-// Show Text
-.dashContainer a{
-    color: black;
-    text-decoration: none;
-}
-
-.showContainer{
-    background-color: rgba(141, 160, 166, 0.5);
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    padding: 5px;
-    // width: 50%;
-}
-
 //individual Show Page Styles=========================>
-.showPageh1{
+.showPageh1 {
     border: 2px solid red;
 }
 
-.showPageContainer{
+.showPageContainer {
     border: 2px solid blue;
     display: flex;
     justify-content: center;
@@ -217,35 +270,3 @@ body {
     width: 50%;
     margin: 0 auto;
 }
-
-@media(max-width: 768px){
-    a.navLink{
-        display: none;
-        // border: 2px solid red;
-    }
-
-    .hamburger{
-        // border: 2px solid red;
-        // outline: none;
-        background: none;
-        margin-right: 10px;
-        cursor: pointer;
-        width: 35px;
-        height: 30px;
-        display: block;
-        position: relative;
-        // determines stack level of the element
-        z-index: 1;
-    }
-
-    .hamburger span{
-        display: block;
-        width: 98%;
-        height: 4px;
-        margin-bottom: 5px;
-        position: relative;
-        background-color: pink;
-        border-radius: 3px;
-    }
-}
-
