@@ -12,7 +12,7 @@ const Dashboard = ({dashboardShows, getShows }) => {
   return (
     <>
     <header className="dashHeader">
-      <h1>Your BingeList</h1>
+      <h1 className="bingeH1">Your BingeList</h1>
     </header>
       <div className="dashContainer">
     {dashboardShows.map((show, i) => {

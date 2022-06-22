@@ -14,6 +14,8 @@ function NavBar(props) {
   //   navigate('/bingelist')
   // }
 
+
+
   return (
 
     <div className='navBarContainer'>
