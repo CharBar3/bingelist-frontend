@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const SeriesShow = ({ dashboardShows, getShows, updateShow }) => {
+const SeriesShow = ({ dashboardShows, getShows, updateShow, user }) => {
 
   let params = useParams()  
 
   const [tvShow, updateTvShow] = useState(dashboardShows.find(element => element._id === params.id))
-  console.log(tvShow)
 
   const handleChange = (e, index, episodeNumber) => {
 
