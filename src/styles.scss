@@ -1,21 +1,105 @@
 //nothing here for now, but this is connected to index.js and so will cascade through
 //entire app
 
-:root{
-    --primary-color: #1b343c;
-    --secondary-color: hsl(199, 42%, 42%); 
-    --alternative-color: #619eb3;
-    --dark: #262626;
-}
-body{
-    background-color: lightgrey;
-}
+
+$primary-color: #1b343c;
+$secondary-color: #3e7a96;
+$alternative-color: #619eb3;
+$dark: #262626;
+$highlight: #7aecf1;
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+@mixin outer-container {
+    margin: 0 auto;
+    background-color: $primary-color;
+    color: $secondary-color;
+    width: 93%;
+    border-radius: 15px;
+}
+
+@mixin inner-container {
+    margin: 0 auto;
+    background-color: $alternative-color;
+    color: $dark;
+    width: 96%;
+    border-radius: 10px;
+}
+
+body {
+    background-color: $dark;
+}
+
+.search-container {
+    @include outer-container;
+
+    .search-show {
+        @include inner-container;
+
+        .titlecard {
+            margin: 20px;
+            padding-top: 15px;
+
+            h1 {
+                margin: 0 auto;
+                margin-top: 15px;
+                text-align: center;
+                width: 96%;
+                height: 80px;
+                padding-top: 35px;
+                color: $secondary-color;
+                background-position: center;
+                background-size: cover;
+                border-radius: 10px;
+                border: 3px solid $dark;
+            }
+        }
+
+        button {
+            background-color: $secondary-color;
+            border-color: $dark;
+            color: $dark;
+            margin-bottom: 15px;
+            width: 400px;
+            height: 70px;
+            border-radius: 15px;
+
+            &:hover, &:active {
+                background: linear-gradient(269deg, 
+                    $secondary-color,
+                    $alternative-color, 
+                    $highlight, 
+                    $alternative-color, 
+                    $secondary-color);
+                background-size: 300% 300%;
+                animation: gradient-animation 3s ease infinite;
+            }
+
+            @keyframes gradient-animation {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            @media screen and (max-width: 915px) {
+                width: 90%;
+            }
+        }
+        
+    }
+}
+
+
 // NAVBAR
 .navBarContainer{
     background-color:   rgba(15, 34, 40, 0.621);
@@ -75,22 +159,22 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 // Shows button
-.getShowButton{
-    background-color: aqua;
-    width: 30%;
-    height: 40px;
-    font-weight: bolder;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 5px;
-    border: none;
-    background-color:  rgba(124, 165, 177, 0.621);
-    margin-top: 8px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-}
-.getShowButton:hover{
-    background-color: black;
-    color:white;
-}
+// .getShowButton{
+//     background-color: aqua;
+//     width: 30%;
+//     height: 40px;
+//     font-weight: bolder;
+//     font-family: 'Poppins', sans-serif;
+//     border-radius: 5px;
+//     border: none;
+//     background-color:  rgba(124, 165, 177, 0.621);
+//     margin-top: 8px;
+//     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+// }
+// .getShowButton:hover{
+//     background-color: black;
+//     color:white;
+// }
 
 .dashContainer{
     margin:auto;
@@ -164,3 +248,4 @@ body{
         border-radius: 3px;
     }
 }
+

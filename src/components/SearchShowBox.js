@@ -1,17 +1,14 @@
-
-
-const SearchShowBox = ({title, background, description}) => {
+const SearchShowBox = ({ title, background }) => {
     return (
-        <>
-        <h1 
-        style={{
-            backgroundImage: `url(${background})`,
-            width: '800px',
-            height: '100px',
-        }}
-        >{title}</h1>
-        {/* <img src={background} alt={background} /> */}
-        </>
+        <div className="titlecard">
+            <h1
+                style={{
+                    backgroundImage: `url(${background})`
+                }}
+            >
+                {title}
+            </h1>
+        </div>
     )
 }
 
