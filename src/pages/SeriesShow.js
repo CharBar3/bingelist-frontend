@@ -40,7 +40,7 @@ const SeriesShow = ({ dashboardShows, getShows }) => {
       }
 
       return (
-        <div>
+        <div className="showPageContainer">
           <h3>Season {index + 1} Episode {episodeNumber}</h3>
           <h4>Title {episodeTitle}</h4>
           <p> Watched ?  {watchedCheckbox}</p>
@@ -54,7 +54,7 @@ const SeriesShow = ({ dashboardShows, getShows }) => {
 
   return (
     <>
-      <h1>{tvShow.showTitle}</h1>
+      <h1 className="showPageh1">{tvShow.showTitle}</h1>
       {seasons}
 
 
