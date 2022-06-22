@@ -138,7 +138,6 @@ const deleteShow = async (id) => {
           } 
         />  
       </Routes>
-      {/* <img src="https://i.pinimg.com/originals/0b/43/f6/0b43f61a8bdd5091da0fd37ddca1a9a3.gif" id="background-img" /> */}
     </div>
   );
 }
