@@ -7,11 +7,10 @@ import NavBar from './components/NavBar';
 import Dashboard from './pages/Dashboard';
 import SeriesShow from './pages/SeriesShow';
 import { Routes, Route } from 'react-router-dom';
-// import { getNextKeyDef } from '@testing-library/user-event/dist/keyboard/getNextKeyDef';
 
+function App() {
 
-function App(props) {
-
+// Holds user informatoin from Firebase
 const [ user, setUser ] = useState(null)
 
 useEffect(() => {
@@ -40,7 +39,6 @@ const [dashboardShows, setDashboardShows] = useState([])
 const addToBingeList = async (tvShowAdd) => {
   if(!user) return;
   const token = await user.getIdToken()
-  console.log(token)
   await fetch(URL, {
       method: 'POST',
       headers: {
@@ -52,10 +50,8 @@ const addToBingeList = async (tvShowAdd) => {
 }
 
 const getShows = async () => {
-  console.log(user)
   if(!user) return;
   const token = await user.getIdToken()
-  console.log(token)
   const response = await fetch(URL
     , {
     method: 'GET',
@@ -65,14 +61,12 @@ const getShows = async () => {
   }
   )
   const data = await response.json()
-  // console.log({data})
   setDashboardShows(data)
 }
 
 const createShow = async (show) => {
   // if(!user) return;
   const token = await user.getIdToken()
-  console.log(token)
   await fetch(URL, {
     method: "POST",
     headers: {
@@ -85,9 +79,8 @@ const createShow = async (show) => {
 };
 
 const updateShow = async (updatedShow, id) => {
-  // if(!user) return;
+  if(!user) return;
   const token = await user.getIdToken()
-  console.log(token)
   await fetch(URL + id, {
     method: "PUT",
     headers: {
@@ -100,12 +93,13 @@ const updateShow = async (updatedShow, id) => {
 };
 
 const deleteShow = async (id) => {
-  // if(!user) return;
+  if(!user) return;
   const token = await user.getIdToken()
-  console.log(token)
   await fetch(URL + id, {
     method: "DELETE",
+    headers: {
     'Authorization': 'Bearer ' + token
+    }
   });
   getShows();
 };
@@ -118,13 +112,14 @@ const deleteShow = async (id) => {
       <NavBar user  = {user}/>
       <Routes>
         <Route path="bingelist" element={<Home user = {user}/>} />
-        <Route path="bingelist/search" element={<Search createShow={createShow} addToBingeList={addToBingeList} />} />
+        <Route path="bingelist/search" element={<Search createShow={createShow} addToBingeList={addToBingeList} user={user}/>} />
         <Route path="bingelist/dashboard" element=
           {
             <Dashboard
               getShows={getShows} 
               dashboardShows={ dashboardShows }
               deleteShow={deleteShow}
+              user={user}
             />
           } />
 
