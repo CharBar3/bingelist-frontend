@@ -2,6 +2,8 @@
 import { useEffect } from "react";
 import {  Link } from 'react-router-dom'
 const Dashboard = ({dashboardShows, getShows }) => {
+  console.log("dashboard loaded")
+
   useEffect(() => {
     getShows()
   }, [])
@@ -11,7 +13,6 @@ const Dashboard = ({dashboardShows, getShows }) => {
     <>
     <header className="dashHeader">
       <h1>Your BingeList</h1>
-      <button onClick={() => getShows()} className="getShowButton">Shows</button>
     </header>
       <div className="dashContainer">
     {dashboardShows.map((show, i) => {
