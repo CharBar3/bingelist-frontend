@@ -1,34 +1,33 @@
-//index page for list of movies/shows
 import { useEffect } from "react";
 import { Link } from 'react-router-dom'
-const Dashboard = ({ dashboardShows, getShows }) => {
-  console.log("dashboard loaded")
+const Dashboard = ({ dashboardShows, getShows, deleteShow, user }) => {
 
   useEffect(() => {
     getShows()
-  }, [])
+  }, [user])
 
-  // const hasData = () => {
   return (
     <>
       <div className="dashContainer">
         <header className="dashHeader">
           <h1>Your BingeList</h1>
         </header>
+
         {dashboardShows.map((show, i) => {
           return (
-            <Link to={`/bingeList/${show._id}`}>
-
-              <div key={i} className="showContainer">
+            <div key={i} className="showContainer">
+              <Link to={`/bingeList/${show._id}`}>
                 <h1
                   style={{
                     backgroundImage: `url(${show.showPoster})`
                   }}
                 >{show.showTitle}</h1>
-                <h3>Seaons: {show.seasons.length}</h3>
-                <h3>User Rating: {show.userRating}</h3>
-              </div>
-            </Link>
+              </Link>
+              <h3>Seasons: {show.seasons.length}</h3>
+              {/* <h3>User Rating: {show.userRating}</h3> */}
+              <button onClick={() => deleteShow(show._id)}> Remove from BingeList</button>
+            </div>
+
           );
         })}
       </div>
