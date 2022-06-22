@@ -7,24 +7,31 @@ $alternative-color: #619eb3;
 $dark: #262626;
 $highlight: #7aecf1;
 
+@mixin outer-container {
+    margin: 0 auto;
+    background-color: $primary-color;
+    color: $secondary-color;
+    width: 93%;
+    border-radius: 15px;
+}
+
+@mixin inner-container {
+    margin: 0 auto;
+    background-color: $alternative-color;
+    color: $dark;
+    width: 96%;
+    border-radius: 10px;
+}
+
 body {
     background-color: $dark;
 }
 
 .search-container {
-    margin: 0 auto;
-    background-color: $primary-color;
-    color: $secondary-color;
-    width: 93%;
+    @include outer-container;
 
     .search-show {
-        margin: 0 auto;
-        display: flexbox;
-        flex-direction: column;
-        flex-wrap: wrap;
-        background-color: $alternative-color;
-        color: $dark;
-        width: 96%;
+        @include inner-container;
 
         .titlecard {
             margin: 20px;
@@ -54,7 +61,7 @@ body {
             height: 70px;
             border-radius: 15px;
 
-            &:hover {
+            &:hover, &:active {
                 background: linear-gradient(269deg, 
                     $secondary-color,
                     $alternative-color, 
@@ -75,6 +82,10 @@ body {
                 100% {
                     background-position: 0% 50%;
                 }
+            }
+
+            @media screen and (max-width: 915px) {
+                width: 90%;
             }
         }
         
