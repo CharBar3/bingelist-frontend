@@ -1,6 +1,94 @@
 //nothing here for now, but this is connected to index.js and so will cascade through
 //entire app
 
+$primary-color: #1b343c;
+$secondary-color: #3e7a96;
+$alternative-color: #619eb3;
+$dark: #262626;
+$highlight: #7aecf1;
+
+body {
+    background-color: $dark;
+}
+
+.search-container {
+    margin: 0 auto;
+    background-color: $primary-color;
+    color: $secondary-color;
+    width: 93%;
+
+    .search-show {
+        margin: 0 auto;
+        display: flexbox;
+        flex-direction: column;
+        flex-wrap: wrap;
+        background-color: $alternative-color;
+        color: $dark;
+        width: 96%;
+
+        .titlecard {
+            margin: 20px;
+            padding-top: 15px;
+
+            h1 {
+                margin: 0 auto;
+                margin-top: 15px;
+                text-align: center;
+                width: 96%;
+                height: 80px;
+                padding-top: 35px;
+                color: $secondary-color;
+                background-position: center;
+                background-size: cover;
+                border-radius: 10px;
+                border: 3px solid $dark;
+            }
+        }
+
+        button {
+            background-color: $secondary-color;
+            border-color: $dark;
+            color: $dark;
+            margin-bottom: 15px;
+            width: 400px;
+            height: 70px;
+            border-radius: 15px;
+
+            &:hover {
+                background: linear-gradient(269deg, 
+                    $secondary-color,
+                    $alternative-color, 
+                    $highlight, 
+                    $alternative-color, 
+                    $secondary-color);
+                background-size: 300% 300%;
+                animation: gradient-animation 3s ease infinite;
+            }
+
+            @keyframes gradient-animation {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+        }
+        
+    }
+}
+
+// style= {
+//         {
+//         backgroundImage: `url(${background})`,
+//         width: '800px',
+//             height: '100px',
+//     }
+// }
+
 // *{
 //     margin: 0;
 //     padding: 0;
