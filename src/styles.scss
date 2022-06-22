@@ -81,10 +81,14 @@ $highlight: #7aecf1;
 
 body {
     background-color: $dark;
+    // background-color: lightgray;
+    overflow: auto;
 }
 
 // NAVBAR
 .navBarContainer {
+     border-bottom: 3px solid #9388A2;
+    box-shadow: #7aecf1;
     background-color: $primary-color;
     color: $secondary-color;
     padding-top: 15px;
@@ -94,6 +98,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  
+    .logo{
+    //Ask tuesday which of the 2 she likes????????????????????????????????
+      // color: $dark;
+      color: #9388A2;
+      letter-spacing: 5px;
+    }
+
+    .bingeH1{
+      color:#9388A2;
+    }
 
     // Login button  IS HIDDEN TO NON UNTIL I FIISH THE NAV BAR
     .login {
@@ -103,6 +118,7 @@ body {
         // padding-top: 20px;
         // width: 10%;
         // margin: auto;
+      
         //hidden for now untill @media is added====================================>
         //talk with tuesday to see how she wants to handle this
         // display: none;
@@ -116,8 +132,9 @@ body {
 
     .navLink {
         //border: 1px solid red;
-        margin-right: 12px;
-        font-size: 1.2rem;
+        margin-right: 18px;
+        font-size: 1rem;
+        letter-spacing: 2px;
         text-decoration: none;
         color: $secondary-color;
         font-weight: bold;
@@ -125,7 +142,7 @@ body {
         &:hover {
             color: $highlight;
             font-size: 1.3rem;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            box-shadow: rgba(206, 206, 216, 0.682) 0px 50px 100px -20px, rgba(244, 240, 240, 0.3) 0px 30px 60px -30px, rgba(255, 255, 255, 0.998) 0px -2px 6px 0px inset;
         }
     }
 
@@ -143,29 +160,42 @@ body {
     //     .hamburger {
     //         // border: 2px solid red;
     //         // outline: none;
-    //         display: inline;
     //         background: none;
-    //         margin-right: 10px;
+    //         border: none;
+    //         margin-right: 25px;
     //         cursor: pointer;
-    //         width: 35px;
+    //         width: 40px;
     //         height: 30px;
     //         display: block;
     //         position: relative;
     //         // determines stack level of the element
     //         z-index: 1;
+               /* controls the origin from where the hamburger will rotate */
+               // transform-origin: 0 0;
+               // transition: 2s;
     //     }
 
     //     .hamburger span {
     //         display: block;
     //         width: 98%;
-    //         height: 4px;
+    //         height: 5px;
     //         margin-bottom: 5px;
     //         position: relative;
-    //         background-color: pink;
+    //         background-color: #9388A2;
     //         border-radius: 3px;
     //     }
     // }
 }
+
+.hamburger:hover span:nth-child(2){
+       opacity: .5;
+        transform: translateX(9px);
+        transition: 1s;
+  
+ }
+ .hamburger.span:nth-child(1){
+    transform: translate(0px, -2px)rotate(45deg);
+  }
 
 //DashBoard Styles
 .dashHeader {
@@ -181,7 +211,7 @@ body {
 
 .dashContainer {
     @include outer-container;
-    // margin:auto;
+    margin:auto;
     // margin-top: 10px;
     font-family: 'Poppins', sans-serif;
     // border: 3px solid red;
@@ -200,9 +230,11 @@ body {
 
     .showContainer {
         @include inner-container;
+        margin: auto;
         margin-top: 30px;
         margin-bottom: 10px;
         padding: 5px;
+        // width: 50%;
         box-shadow: rgba(28, 28, 29, 0.767) 0px 6px 12px -2px, rgba(0, 0, 0, 0.74) 0px 3px 7px -3px;
 
         h1 {
@@ -292,3 +324,4 @@ body {
     width: 50%;
     margin: 0 auto;
 }
+
