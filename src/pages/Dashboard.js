@@ -12,13 +12,13 @@ const Dashboard = ({dashboardShows, getShows }) => {
   return (
     <>
     <header className="dashHeader">
-      <h1>Dashboard</h1>
-      {/* <button onClick={() => getShows()}>getShows</button> */}
+      <h1>Your BingeList</h1>
     </header>
       <div className="dashContainer">
     {dashboardShows.map((show, i) => {
         return (
           <Link to={`/bingeList/${show._id}`}>
+          
           <div key={i} className="showContainer">
               <h1>{show.showTitle}</h1>
               <h3>Seaons: {show.seasons.length}</h3>

@@ -27,7 +27,7 @@ const SeriesShow = ({ dashboardShows, getShows, updateShow }) => {
   const seasons = tvShow.seasons.map(({episodes}, index)=>{
    return( episodes.map(({episodeNumber, episodeTitle, watched}) => {
       return (
-        <div>
+        <div className="showPageContainer">
           <h3>Season {index + 1} Episode {episodeNumber}</h3>
           <h4>Title {episodeTitle}</h4>
           <input type="checkbox" name='watched' onChange={(e) => handleChange(e, index, episodeNumber)} checked={watched}/>
@@ -40,7 +40,7 @@ const SeriesShow = ({ dashboardShows, getShows, updateShow }) => {
 
   return (
     <>
-      <h1>{tvShow.showTitle}</h1>
+      <h1 className="showPageh1">{tvShow.showTitle}</h1>
       {seasons}
     </>
   )
