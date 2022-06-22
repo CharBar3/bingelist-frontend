@@ -42,6 +42,43 @@ $highlight: #7aecf1;
     text-shadow: 2px 0 0 $highlight, -2px 0 0 $highlight, 0 2px 0 $highlight, 0 -2px 0 $highlight, 1px 1px $highlight, -1px -1px 0 $highlight, 1px -1px 0 $highlight, -1px 1px 0 $highlight;
 }
 
+@mixin button-scheme {
+    background-color: $secondary-color;
+    border-color: $dark;
+    color: $dark;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+@mixin button-animation {
+
+    &:hover,
+    &:active {
+        background: linear-gradient(269deg,
+                $secondary-color,
+                $alternative-color,
+                $highlight,
+                $alternative-color,
+                $secondary-color);
+        background-size: 300% 300%;
+        animation: gradient-animation 3s ease infinite;
+    }
+
+    @keyframes gradient-animation {
+        0% {
+            background-position: 0% 50%;
+        }
+
+        50% {
+            background-position: 100% 50%;
+        }
+
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+}
+
 body {
     background-color: $dark;
 }
@@ -171,6 +208,10 @@ body {
         h1 {
             @include title-card;
         }
+
+        button {
+            @include button-scheme;
+        }
     }
 }
 
@@ -182,6 +223,28 @@ body {
     flex-direction: column;
     overflow: auto;
     box-shadow: rgba(28, 28, 29, 0.767) 0px 6px 12px -2px, rgba(0, 0, 0, 0.74) 0px 3px 7px -3px;
+
+    h1 {
+        margin-top: 10px;
+        padding: 10px;
+    }
+
+    form {
+        height: 45px;
+
+        input {
+            height: 30px;
+            margin-right: 15px;
+        }
+
+        button {
+            @include button-scheme;
+            height: 30px;
+            width: 65px;
+
+            @include button-animation;
+        }
+    }
 
     .search-show {
         @include inner-container;
@@ -197,39 +260,15 @@ body {
         }
 
         button {
-            background-color: $secondary-color;
-            border-color: $dark;
-            color: $dark;
+            @include button-scheme;
+            font-size: 20px;
+            margin-top: 15px;
             margin-bottom: 15px;
             width: 400px;
             height: 70px;
             border-radius: 15px;
 
-            &:hover,
-            &:active {
-                background: linear-gradient(269deg,
-                        $secondary-color,
-                        $alternative-color,
-                        $highlight,
-                        $alternative-color,
-                        $secondary-color);
-                background-size: 300% 300%;
-                animation: gradient-animation 3s ease infinite;
-            }
-
-            @keyframes gradient-animation {
-                0% {
-                    background-position: 0% 50%;
-                }
-
-                50% {
-                    background-position: 100% 50%;
-                }
-
-                100% {
-                    background-position: 0% 50%;
-                }
-            }
+            @include button-animation;
 
             @media screen and (max-width: 915px) {
                 width: 90%;
@@ -239,23 +278,6 @@ body {
     }
 }
 
-// Shows button
-// .getShowButton{
-//     background-color: aqua;
-//     width: 30%;
-//     height: 40px;
-//     font-weight: bolder;
-//     font-family: 'Poppins', sans-serif;
-//     border-radius: 5px;
-//     border: none;
-//     background-color:  rgba(124, 165, 177, 0.621);
-//     margin-top: 8px;
-//     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-// }
-// .getShowButton:hover{
-//     background-color: black;
-//     color:white;
-// }
 
 //individual Show Page Styles=========================>
 .showPageh1 {
