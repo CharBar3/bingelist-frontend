@@ -1,6 +1,8 @@
 import React from 'react'
 import { login, logout } from '../services/firebase'
 import {  Link } from 'react-router-dom'
+// figure out how to make fabars icon appear later
+// import{FaBars, FaTimes} from 'react-icons/fa'
 
 function NavBar(props) {
   // const navigate = useNavigate()
@@ -14,25 +16,32 @@ function NavBar(props) {
 
   return (
 
-    <div className='container'>
-         {/* <h3>BingeList</h3>
-         <div className="menu"> */}
-                {/* <a href="" className="is-active">Home</a>
-                <a href="">About</a>
-                <a href="">Contact</a> */}
-                {/* <button onClick={login}>login</button>
-                <button onClick={logout}>logout</button>
-        </div> */}
-        <h1>BingeList</h1>
-        <Link to="/bingelist/dashboard"> Home </Link>
+    <div className='navBarContainer'>
+
+        <h1 className='logo'>BingeList</h1>
+        
+    <nav>
+        <Link to="/bingelist/dashboard" className='navLink'> Home </Link>
+
         {/* <Link to="/bingelist/dashboard">Dashboard</Link> */}
-        <Link to="/bingelist/search"> Find New Show! </Link>
+
+        <Link to="/bingelist/search" className='navLink'> Add New </Link>
+
         {/* This line of code shows the user whether they are logged in or not so the ? and the : 
         are just like if else statements */}
+        
         { props.user
-        ? <p onClick= {logout} > Logout</p>
-        : <p onClick= {login} > Login</p>
+        ? <p onClick= {logout} className="login"> Logout</p>
+        : <p onClick= {login} className="login" > Login</p>
         }
+        <button className='hamburger'>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+    
+    </nav>
+    
 
     </div>
   )

@@ -1,202 +1,166 @@
 //nothing here for now, but this is connected to index.js and so will cascade through
 //entire app
 
-// *{
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-// }
-// .navbar{
-//     display: flex;
-//     justify-content: space-around;
-//     align-items: center;
-//     height: 75px;
-//     background-color: aqua;
-// }
+:root{
+    --primary-color: #1b343c;
+    --secondary-color: hsl(199, 42%, 42%); 
+    --alternative-color: #619eb3;
+    --dark: #262626;
+}
+body{
+    background-color: lightgrey;
+}
 
-// .logo{
-//     font-size: 30px;
-// }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+// NAVBAR
+.navBarContainer{
+    background-color:   rgba(15, 34, 40, 0.621);
+    padding-top: 15px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.navLink{
+//   border: 1px solid red;
 
-// .navLinks{
-//    display: flex; 
-//    justify-content: flex-end;
-//    list-style: none;
-//    width: 75%;
-// }
+  margin-right: 12px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+.navLink:hover{
+    color:#fff;
+    font-size: 1.3rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
 
-// .link{
-//     text-decoration: none;
-//     font-size: 20px;
-//     padding: 10px 20px;
-//     margin: 0 10px;
-//     cursor: pointer;
-// }
-// // Nav Mobile Button
-// .mobile-menu-icon{
-//     display: none;
-// }
+//Hamburger Styles=================>
+.hamburger{
+     // display: none;
 
-// // Dash Border header section
-// .dashContainer{
-//     // border: 3px solid rgb(42, 112, 52);
-//     width: 500px;
-//     display: flex;
-//     margin: auto;
-//     // justify-content: space-evenly;
-//     flex-flow: column wrap;
-//     flex-wrap: wrap;
-// }
+    display: none;
+   
+}
 
-// .showContainer{
-//     // border: 2px solid blue;
-//     background-color: aliceblue;
-//     width: 100%;
-//     margin-bottom: 10px;
-// }
+// Login button  IS HIDDEN TO NON UNTIL I FIISH THE NAV BAR
+.login{
+    background-color: rgb(175, 32, 32);
+    // padding-top: 20px;
+    width: 10%;
+    // margin: auto;
+    
+    
+    
+    //hidden for now untill @media is added====================================>
+    //talk with tuesday to see how she wants to handle this
+    display: none;
+}
 
+//DashBoard Styles
+.dashHeader{
+    // border: 3px solid rgb(9, 117, 9);
+    // background-color: aqua;
+    width: 40%;
+    margin: auto;
+    margin-top: 10px;
+    padding: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+// Shows button
+.getShowButton{
+    background-color: aqua;
+    width: 30%;
+    height: 40px;
+    font-weight: bolder;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 5px;
+    border: none;
+    background-color:  rgba(124, 165, 177, 0.621);
+    margin-top: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.getShowButton:hover{
+    background-color: black;
+    color:white;
+}
 
-// @media screen and (max-width: 780px){
-//     .navLinks{
-//         display: none;
-//     }
+.dashContainer{
+    margin:auto;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    // border: 3px solid red;
+    border-radius: 10px;
+    // height: 100vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+// Show Text
+.dashContainer a{
+    color: black;
+    text-decoration: none;
+}
 
-//     .navLinksMobile{
-//         position: absolute;
-//         display: block;
-//         list-style: none;
-//         background-color: rgb(134, 36, 36);
-//         left: 0;
-//         top: 75px;
-//         transition: all 0.5s ease-out;
-//         width: 100%;
-//     }
+.showContainer{
+    background-color: rgba(141, 160, 166, 0.5);
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding: 5px;
+    // width: 50%;
+}
 
-//     .link{
-//        color: black;
-//        text-align: center; 
-//        padding: 32px;
-//        width: 100%;
-//        transition: all 0.5s ease;
-//     }
+//individual Show Page Styles=========================>
+.showPageh1{
+    border: 2px solid red;
+}
 
-//     .mobile-menu-icon{
-//         display: block;
-//         position: 30px;
-//         background-color: black;
-//         outline: none;
-//         top: 15px;
-//         right: 25px
-//     }
+.showPageContainer{
+    border: 2px solid blue;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 50%;
+    margin: 0 auto;
+}
 
-// .infoboxDiv {
-//     border: 2px solid red;
-// }
+@media(max-width: 768px){
+    a.navLink{
+        display: none;
+        // border: 2px solid red;
+    }
 
-// .seriesShow {
-//     margin: 0 auto;
-//     margin-top: 20px;
-//     padding: 3px;
-//     width: 95%;
-//     height: 80%;
-//     background-color: lightgray;
+    .hamburger{
+        // border: 2px solid red;
+        // outline: none;
+        background: none;
+        margin-right: 10px;
+        cursor: pointer;
+        width: 35px;
+        height: 30px;
+        display: block;
+        position: relative;
+        // determines stack level of the element
+        z-index: 1;
+    }
 
-//     .episodeCard {
-//         margin: 0 auto;
-//         width: 98%;
-//         background-color: greenyellow;
-
-//         .epButton {
-//             margin: 6px;
-//             height: 70px;
-//             width: 70px;
-//             position: absolute;
-//             background-color: blue;
-//             color: blanchedalmond;
-//         }
-
-//         #prevEp {
-//             bottom: 48%;
-//             left: 6%;
-//         }
-
-//         #nextEp {
-//             bottom: 48%;
-//             right: 6%;
-//         }
-
-//         h3 {
-//             position: absolute;
-//             color: blanchedalmond;
-//         }
-
-//         #title {
-//             top: 40%;
-//             left: 30%;
-//             right: 30%;
-//         }
-
-//         #number {
-//             bottom: 40%;
-//             left: 34%;
-//             right: 34%;
-//         }
-
-//         img {
-//             margin: 3px;
-//             height: 300px;
-//             width: 96%;
-//             object-fit: cover;
-//         }
-//     }
-
-//     .seasonSelector {
-//         margin: 0 auto;
-//         margin-top: 8px;
-//         padding: 3px;
-//         background-color: gray;
-
-//         #season {
-//             margin: 3px;
-//             background-color: lightgray;
-//             height: 40px;
-//             width: 300px;
-//             text-align: center;
-//         }
-
-//         #episodeChecklist {
-//             margin: 3px;
-//             background-color: lightgray;
-//         }
-//     }
-
-//     .comments {
-//         margin: 0 auto;
-//         margin-top: 8px;
-//         width: 98%;
-//         padding: 3px;
-//         background-color: greenyellow;
-
-//         ul {
-//             list-style: none;
-//             padding: 0;
-
-//             li {
-//                 background-color: lightgray;
-//                 margin: 0 15%;
-//             }
-//         }
-
-//         #userComment {
-//             background-color: lightgray;
-//             width: 80%;
-//             height: 100px;
-//         }
-
-//         #submitComment {
-//             background-color: blue;
-//             color: blanchedalmond;
-//         }
-
-//     }
-// }
+    .hamburger span{
+        display: block;
+        width: 98%;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background-color: pink;
+        border-radius: 3px;
+    }
+}
