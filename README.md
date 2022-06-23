@@ -26,7 +26,7 @@ A mobile/web application that allows you to keep track of your favorite TV shows
 * [Live Link](/)
 
 ## Screenshots
-<img src="https://images2.imgbox.com/3f/21/yKvoEiO0_o.png" alt="drawing" width="200"/>
+<img src="https://images2.imgbox.com/3f/21/yKvoEiO0_o.png" alt="drawing" width="450"/>
 
 
 ## Unsolved Problems
