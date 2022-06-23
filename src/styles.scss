@@ -9,6 +9,7 @@ body {
     background-color: $dark;
     // background-color: lightgray;
     overflow: auto;
+    color: $primary-color;
 }
 
 * {
@@ -120,17 +121,17 @@ body {
         //talk with tuesday to see how she wants to handle this
         // display: none;
 
-        @media(max-width: 768px) {
-            position: absolute;
-            right: 80px;
-        }
+        // @media(max-width: 768px) {
+        //     position: absolute;
+        //     right: 80px;
+        // }
 
         &:hover {
             color: $highlight;
             font-size: 1.3rem;
-            box-shadow: rgba(206, 206, 216, 0.682) 0px 50px 100px -20px,
-                rgba(244, 240, 240, 0.3) 0px 30px 60px -30px,
-                rgba(255, 255, 255, 0.998) 0px -2px 6px 0px inset;
+            // box-shadow: rgba(206, 206, 216, 0.682) 0px 50px 100px -20px,
+            //     rgba(244, 240, 240, 0.3) 0px 30px 60px -30px,
+            //     rgba(255, 255, 255, 0.998) 0px -2px 6px 0px inset;
         }
 
         
@@ -148,9 +149,9 @@ body {
         &:hover {
             color: $highlight;
             font-size: 1.3rem;
-            box-shadow: rgba(206, 206, 216, 0.682) 0px 50px 100px -20px,
-                rgba(244, 240, 240, 0.3) 0px 30px 60px -30px,
-                rgba(255, 255, 255, 0.998) 0px -2px 6px 0px inset;
+            // box-shadow: rgba(206, 206, 216, 0.682) 0px 50px 100px -20px,
+            //     rgba(244, 240, 240, 0.3) 0px 30px 60px -30px,
+            //     rgba(255, 255, 255, 0.998) 0px -2px 6px 0px inset;
         }
     }
 
@@ -398,7 +399,10 @@ body {
     input[type="checkbox"] {
         margin: 0 auto;
         margin-top: 20px;
+        height: 30px;
+        width: 30px;
     }
+
 }
 
 @media(max-width: 600px) {
@@ -415,10 +419,6 @@ body {
         // background-color: aqua;
         width: 65%;
     }
-
-
-
-
 
 
     //Show Page Styles
