@@ -1,10 +1,8 @@
 # BingeList
 
-A web application that allows you to keep track of your favorite TV shows! BingeList lets you to search a database for shows that you would like to watch and track, adding them to a personal dashboard so you can track the episodes that you have seen already.
-
 ## Description and Features
 
-A web application that allows you to keep track of your favorite TV shows! BingeList lets you to search a database for shows that you would like to watch and track, adding them to a personal dashboard so you can track the episodes that you have seen already.
+A mobile/web application that allows you to keep track of your favorite TV shows! BingeList lets you to search a database for shows that you would like to watch and track, adding them to a personal dashboard so you can track the episodes that you have seen already.
 
 ## Collaborators
 
@@ -28,6 +26,7 @@ A web application that allows you to keep track of your favorite TV shows! Binge
 * [Live Link](/)
 
 ## Screenshots
+<img src="https://images2.imgbox.com/3f/21/yKvoEiO0_o.png" alt="drawing" width="200"/>
 
 
 ## Unsolved Problems
