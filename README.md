@@ -8,24 +8,24 @@ A web application that allows you to keep track of your favorite TV shows! Binge
 
 ## Collaborators
 
-*Charles Bartlett - Release manager
-*Anthony Jose - Lead back-end dev
-*Mariah Hernandez - Lead front-end dev
-*Kevin Ventura - Product manager
+* Charles Bartlett - Release manager
+* Anthony Jose - Lead back-end dev
+* Mariah Hernandez - Lead front-end dev
+* Kevin Ventura - Product manager
 
 ## Technologies Used
 
-*MongoDB
-*Express
-*React
-*Node
-*Google Firebase
-*[The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction)
+* MongoDB
+* Express
+* React
+* Node
+* Google Firebase
+* [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction)
 
 ## Getting Started
-*[WireFrame](https://www.figma.com/file/lxWsdEddZhfZeCbWgt3EJc/BingeList?node-id=0%3A1)
-*[Trello](https://trello.com/b/Nleyr78L/bingelist)
-*[Live Link](/)
+* [WireFrame](https://www.figma.com/file/lxWsdEddZhfZeCbWgt3EJc/BingeList?node-id=0%3A1)
+* [Trello](https://trello.com/b/Nleyr78L/bingelist)
+* [Live Link](/)
 
 ## Screenshots
 
