@@ -154,62 +154,58 @@ body {
         }
     }
 
-//Hamburger Styles=================>
-.hamburger {
-    display: none;
+// //Hamburger Styles=================>
+//     .hamburger {
+//         display: none;
+//     }
+
+// //Media Queries=====================================>
+//     @media(max-width: 768px) {
+//         a.navLink {
+//             display: none;
+//             // border: 2px solid red;
+//     }
+
+//     .hamburger {
+//         // border: 2px solid red;
+//         // outline: none;
+//         background: none;
+//         border: none;
+//         margin-right: 25px;
+//         cursor: pointer;
+//         width: 40px;
+//         height: 30px;
+//         display: block;
+//         position: relative;
+//         // determines stack level of the element
+//         z-index: 1;
+//         /* controls the origin from where the hamburger will rotate */
+//         // transform-origin: 0 0;
+//         // transition: 2s;
+//     }
+
+//     .hamburger span {
+//         display: block;
+//         width: 98%;
+//         height: 5px;
+//         margin-bottom: 5px;
+//         position: relative;
+//         background-color: $secondary-color;
+//         border-radius: 3px;
+//     }
+// }
 }
 
+// .hamburger:hover span:nth-child(2) {
+//     opacity: .5;
+//     transform: translateX(9px);
+//     transition: 1s;
 
+// }
 
-
-
-//Media Queries=====================================>
-@media(max-width: 768px) {
-    a.navLink {
-        display: none;
-        // border: 2px solid red;
-    }
-
-    .hamburger {
-        // border: 2px solid red;
-        // outline: none;
-        background: none;
-        border: none;
-        margin-right: 25px;
-        cursor: pointer;
-        width: 40px;
-        height: 30px;
-        display: block;
-        position: relative;
-        // determines stack level of the element
-        z-index: 1;
-        /* controls the origin from where the hamburger will rotate */
-        // transform-origin: 0 0;
-        // transition: 2s;
-    }
-
-    .hamburger span {
-        display: block;
-        width: 98%;
-        height: 5px;
-        margin-bottom: 5px;
-        position: relative;
-        background-color: $secondary-color;
-        border-radius: 3px;
-    }
-}
-}
-
-.hamburger:hover span:nth-child(2) {
-    opacity: .5;
-    transform: translateX(9px);
-    transition: 1s;
-
-}
-
-.hamburger.span:nth-child(1) {
-    transform: translate(0px, -2px)rotate(45deg);
-}
+// .hamburger.span:nth-child(1) {
+//     transform: translate(0px, -2px)rotate(45deg);
+// }
 
 //DashBoard Styles
 .dashHeader {
@@ -261,6 +257,8 @@ body {
         button {
             @include button-scheme;
 
+            border-radius: 5px;
+
             &:hover,
             &:active {
                 background: linear-gradient(269deg,
@@ -303,13 +301,15 @@ body {
             margin-right: 15px;
             background-color: $lowlight;
             color: $dark;
-            padding: 5px;
+            padding: 4px;
         }
 
         button {
             @include button-scheme;
             height: 30px;
             width: 65px;
+
+            border-radius: 6px;
 
             @include button-animation;
         }
@@ -394,6 +394,11 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+
+    input[type="checkbox"] {
+        margin: 0 auto;
+        margin-top: 20px;
+    }
 }
 
 @media(max-width: 600px) {

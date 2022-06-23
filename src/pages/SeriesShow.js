@@ -28,8 +28,8 @@ const SeriesShow = ({ dashboardShows, getShows, updateShow, user }) => {
       return (
         
         <div className="showPageContainer">
-          <h3 className="item1">Season {index + 1} Episode {episodeNumber}</h3>
-          <h4 className="item2">Title {episodeTitle}</h4>
+          <h4 className="item1">Season: {index + 1} Episode: {episodeNumber}</h4>
+          <h2 className="item2"> {episodeTitle}</h2>
           <input type="checkbox" name='watched' onChange={(e) => handleChange(e, index, episodeNumber)} checked={watched}/>
         </div>
         
