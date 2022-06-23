@@ -40,7 +40,14 @@ $lowlight: #9388A2;
     background-size: cover;
     border-radius: 10px;
     border: 3px solid $lowlight;
-    text-shadow: 2px 0 0 $highlight, -2px 0 0 $highlight, 0 2px 0 $highlight, 0 -2px 0 $highlight, 1px 1px $highlight, -1px -1px 0 $highlight, 1px -1px 0 $highlight, -1px 1px 0 $highlight;
+    text-shadow: 2px 0 0 $highlight, 
+    -2px 0 0 $highlight, 
+    0 2px 0 $highlight, 
+    0 -2px 0 $highlight, 
+    1px 1px $highlight, 
+    -1px -1px 0 $highlight, 
+    1px -1px 0 $highlight, 
+    -1px 1px 0 $highlight;
 }
 
 @mixin button-scheme {
@@ -82,7 +89,6 @@ $lowlight: #9388A2;
 
 body {
     background-color: $dark;
-    // background-color: lightgray;
     overflow: auto;
 }
 
@@ -101,8 +107,6 @@ body {
     align-items: center;
 
     .logo {
-        //Ask tuesday which of the 2 she likes????????????????????????????????
-        // color: $dark;
         text-shadow: 0 2px 0 $lowlight;
         color: $secondary-color;
         letter-spacing: 5px;
@@ -112,25 +116,28 @@ body {
         color: $lowlight;
     }
 
-    // Login button  IS HIDDEN TO NON UNTIL I FIISH THE NAV BAR
     .login {
         display: inline;
         margin-right: 15px;
-        // background-color: rgb(175, 32, 32);
-        // padding-top: 20px;
-        // width: 10%;
-        // margin: auto;
+        font-weight: 700;
+        letter-spacing: 2px;
 
-        //hidden for now untill @media is added====================================>
-        //talk with tuesday to see how she wants to handle this
-        // display: none;
+        @media(max-width: 768px) {
+            position: absolute;
+            right: 70px;
+        }
 
         &:hover {
             color: $highlight;
             font-size: 1.3rem;
-            box-shadow: rgba(206, 206, 216, 0.682) 0px 50px 100px -20px,
-                rgba(244, 240, 240, 0.3) 0px 30px 60px -30px,
-                rgba(255, 255, 255, 0.998) 0px -2px 6px 0px inset;
+            text-shadow: 2px 0 0 $dark,
+                -2px 0 0 $dark,
+                0 2px 0 $dark,
+                0 -2px 0 $dark,
+                1px 1px $dark,
+                -1px -1px 0 $dark,
+                1px -1px 0 $dark,
+                -1px 1px 0 $dark;
         }
     }
 
@@ -146,9 +153,14 @@ body {
         &:hover {
             color: $highlight;
             font-size: 1.3rem;
-            box-shadow: rgba(206, 206, 216, 0.682) 0px 50px 100px -20px,
-                rgba(244, 240, 240, 0.3) 0px 30px 60px -30px,
-                rgba(255, 255, 255, 0.998) 0px -2px 6px 0px inset;
+            text-shadow: 2px 0 0 $dark,
+                -2px 0 0 $dark,
+                0 2px 0 $dark,
+                0 -2px 0 $dark,
+                1px 1px $dark,
+                -1px -1px 0 $dark,
+                1px -1px 0 $dark,
+                -1px 1px 0 $dark;            
         }
     }
 
@@ -157,40 +169,39 @@ body {
         display: none;
     }
 
-    // @media(max-width: 768px) {
-    //     a.navLink {
-    //         display: none;
-    //         // border: 2px solid red;
-    //     }
+     @media(max-width: 768px) {
+         a.navLink {
+             display: none;
+         }
 
-    //     .hamburger {
-    //         // border: 2px solid red;
-    //         // outline: none;
-    //         background: none;
-    //         border: none;
-    //         margin-right: 25px;
-    //         cursor: pointer;
-    //         width: 40px;
-    //         height: 30px;
-    //         display: block;
-    //         position: relative;
-    //         // determines stack level of the element
-    //         z-index: 1;
+         .hamburger {
+             // border: 2px solid red;
+             // outline: none;
+             background: none;
+             border: none;
+             margin-right: 25px;
+             cursor: pointer;
+             width: 40px;
+             height: 30px;
+             display: block;
+             position: relative;
+             // determines stack level of the element
+             z-index: 1;
     /* controls the origin from where the hamburger will rotate */
-    // transform-origin: 0 0;
-    // transition: 2s;
-    //     }
+     transform-origin: 0 0;
+     transition: 2s;
+         }
 
-    //     .hamburger span {
-    //         display: block;
-    //         width: 98%;
-    //         height: 5px;
-    //         margin-bottom: 5px;
-    //         position: relative;
-    //         background-color: $lowlight;
-    //         border-radius: 3px;
-    //     }
-    // }
+         .hamburger span {
+             display: block;
+             width: 98%;
+             height: 5px;
+             margin-bottom: 5px;
+             position: relative;
+             background-color: $lowlight;
+             border-radius: 3px;
+         }
+     }
 }
 
 .hamburger:hover span:nth-child(2) {
@@ -235,7 +246,7 @@ body {
     box-shadow: rgba(28, 28, 29, 0.767) 0px 6px 12px -2px, rgba(0, 0, 0, 0.74) 0px 3px 7px -3px;
 
     a {
-        color: black;
+        color: $dark;
         text-decoration: none;
     }
 
@@ -255,12 +266,7 @@ body {
         button {
             @include button-scheme;
 
-            $primary-color: #1b343c;
-                $secondary-color: #3e7a96;
-                $alternative-color: #619eb3;
-                $dark: #262626;
-                $highlight: #7aecf1;
-                $lowlight: #9388A2;
+            border-radius: 6px;
 
             &:hover,
             &:active {
@@ -284,6 +290,7 @@ body {
     display: flex;
     flex-direction: column;
     overflow: auto;
+    padding-bottom: 20px;
     box-shadow: rgba(28, 28, 29, 0.767) 0px 6px 12px -2px, rgba(0, 0, 0, 0.74) 0px 3px 7px -3px;
 
     #search-header {
@@ -313,6 +320,7 @@ body {
             @include button-scheme;
             height: 30px;
             width: 65px;
+            border-radius: 6px;
 
             @include button-animation;
         }

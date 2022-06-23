@@ -97,7 +97,7 @@ const Search = ({ addToBingeList }) => {
 
     return (
         <div className='search-container'>
-            <h1>Series Search</h1>
+            <h1 id='search-header'>Series Search</h1>
             <div>
                 <form onSubmit={handleSubmit}>
                     <input type="text" name="searchBar" />
