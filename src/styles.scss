@@ -4,6 +4,12 @@ $alternative-color: #619eb3;
 $dark: #262626;
 $highlight: #7aecf1;
 
+body {
+    background-color: $dark;
+    // background-color: lightgray;
+    overflow: auto;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -79,15 +85,11 @@ $highlight: #7aecf1;
     }
 }
 
-body {
-    background-color: $dark;
-    // background-color: lightgray;
-    overflow: auto;
-}
+
 
 // NAVBAR
 .navBarContainer {
-     border-bottom: 3px solid #9388A2;
+    border-bottom: 3px solid $secondary-color;
     box-shadow: #7aecf1;
     background-color: $primary-color;
     color: $secondary-color;
@@ -98,17 +100,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
   
     .logo{
-    //Ask tuesday which of the 2 she likes????????????????????????????????
-      // color: $dark;
-      color: #9388A2;
+      color: $secondary-color;
       letter-spacing: 5px;
     }
 
-    .bingeH1{
-      color:#9388A2;
-    }
+
 
     // Login button  IS HIDDEN TO NON UNTIL I FIISH THE NAV BAR
     .login {
@@ -120,7 +122,7 @@ body {
         // margin: auto;
       
         //hidden for now untill @media is added====================================>
-        //talk with tuesday to see how she wants to handle this
+        //talk with tuesday to see how she wants to handle this??????????????????????????????????????????????
         // display: none;
 
         &:hover {
@@ -133,7 +135,7 @@ body {
     .navLink {
         //border: 1px solid red;
         margin-right: 18px;
-        font-size: 1rem;
+        font-size: 1.2rem;
         letter-spacing: 2px;
         text-decoration: none;
         color: $secondary-color;
@@ -151,40 +153,45 @@ body {
         display: none;
     }
 
-    // @media(max-width: 768px) {
-    //     a.navLink {
-    //         display: none;
-    //         // border: 2px solid red;
-    //     }
 
-    //     .hamburger {
-    //         // border: 2px solid red;
-    //         // outline: none;
-    //         background: none;
-    //         border: none;
-    //         margin-right: 25px;
-    //         cursor: pointer;
-    //         width: 40px;
-    //         height: 30px;
-    //         display: block;
-    //         position: relative;
-    //         // determines stack level of the element
-    //         z-index: 1;
+
+
+
+//Media Queries=====================================>
+    @media(max-width: 768px) {
+       a.navLink {
+           display: none;
+         // border: 2px solid red;
+      }
+
+     .hamburger {
+      // border: 2px solid red;
+ // outline: none;
+     background: none;
+     border: none;
+     margin-right: 25px;
+     cursor: pointer;
+     width: 40px;
+     height: 30px;
+     display: block;
+     position: relative;
+        // determines stack level of the element
+     z-index: 1;
                /* controls the origin from where the hamburger will rotate */
                // transform-origin: 0 0;
                // transition: 2s;
-    //     }
+       }
 
-    //     .hamburger span {
-    //         display: block;
-    //         width: 98%;
-    //         height: 5px;
-    //         margin-bottom: 5px;
-    //         position: relative;
-    //         background-color: #9388A2;
-    //         border-radius: 3px;
-    //     }
-    // }
+        .hamburger span {
+            display: block;
+            width: 98%;
+            height: 5px;
+            margin-bottom: 5px;
+            position: relative;
+            background-color: $secondary-color;
+            border-radius: 3px;
+        }
+    }
 }
 
 .hamburger:hover span:nth-child(2){
@@ -201,7 +208,8 @@ body {
 .dashHeader {
     // border: 3px solid rgb(9, 117, 9);
     // background-color: aqua;
-    width: 40%;
+    width: 98%;
+    font-size: 1rem;
     margin: auto;
     margin-top: 10px;
     padding: 10px;
@@ -211,15 +219,17 @@ body {
 
 .dashContainer {
     @include outer-container;
+    // background-color: yellow; 
     margin:auto;
-    // margin-top: 10px;
+    margin-top: 90px;
     font-family: 'Poppins', sans-serif;
     // border: 3px solid red;
     // border-radius: 10px;
     // height: 100vh;
-    // width: 50%;
+    width: 45%;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     overflow: auto;
     box-shadow: rgba(28, 28, 29, 0.767) 0px 6px 12px -2px, rgba(0, 0, 0, 0.74) 0px 3px 7px -3px;
 
@@ -254,6 +264,8 @@ body {
     display: flex;
     flex-direction: column;
     overflow: auto;
+    // Adding margin top here because I made the nav bar fixed
+    margin-top: 90px;
     box-shadow: rgba(28, 28, 29, 0.767) 0px 6px 12px -2px, rgba(0, 0, 0, 0.74) 0px 3px 7px -3px;
 
     h1 {
@@ -312,16 +324,73 @@ body {
 
 
 //individual Show Page Styles=========================>
-.showPageh1 {
-    border: 2px solid red;
-}
 
-.showPageContainer {
-    border: 2px solid blue;
+.wrapper{
+    // background-color: pink;
+    
+    width: 75%;
+    margin: auto;
     display: flex;
     justify-content: center;
-    height: 50px;
-    width: 50%;
-    margin: 0 auto;
+    flex-wrap: wrap;
 }
+
+.showPageh1 {
+    // border: 2px solid red;
+    color: $secondary-color;
+    font-size: 4rem;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 15px;
+    width: 70%;
+
+}
+//controls elements inside the box
+.showPageContainer {
+    @include outer-container;
+    // border: 2px solid blue;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center ;
+}
+
+@media(max-width: 600px){
+    
+    //Dash Styles
+    
+    .dashHeader{
+        font-size: 1.2rem;
+        // border: 2px solid red;
+        width: 98%;
+    }
+    
+    .dashContainer{
+        // background-color: aqua;
+        width: 65%;
+    }
+    
+    
+    
+    
+    
+    
+    //Show Page Styles
+    .wrapper{
+        // background-color: green;
+        width: 500px;
+    }
+
+    .showPageh1{
+        font-size: 2.5rem;
+    }
+
+
+    
+}
+
 
