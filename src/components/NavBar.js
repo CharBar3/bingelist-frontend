@@ -5,15 +5,10 @@ import { Link } from 'react-router-dom'
 // import{FaBars, FaTimes} from 'react-icons/fa'
 
 function NavBar(props) {
-  // const navigate = useNavigate()
-  // redirects to the index/show page for all shows/ on login
-  // const loginRedirect = () => {
 
-  //   login()
-  //   console.log("login clicked, redirecting to /bingelist (index show page)")
-  //   navigate('/bingelist')
-  // }
-
+  const handleClick = () => {
+    console.log('you clicked')
+  }
 
 
   return (
@@ -29,7 +24,7 @@ function NavBar(props) {
         <Link to="/bingelist/search" className='navLink'> Add New </Link>
         {/* This line of code shows the user whether they are logged in or not so the ? and the : 
       are just like if else statements */}
-        <button className='hamburger'>
+        <button onClick={handleClick}  className='hamburger'>
           <span></span>
           <span></span>
           <span></span>

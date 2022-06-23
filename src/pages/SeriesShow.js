@@ -26,11 +26,13 @@ const SeriesShow = ({ dashboardShows, getShows, updateShow, user }) => {
   const seasons = tvShow.seasons.map(({episodes}, index)=>{
    return( episodes.map(({episodeNumber, episodeTitle, watched}) => {
       return (
+        
         <div className="showPageContainer">
-          <h3>Season {index + 1} Episode {episodeNumber}</h3>
-          <h4>Title {episodeTitle}</h4>
+          <h3 className="item1">Season {index + 1} Episode {episodeNumber}</h3>
+          <h4 className="item2">Title {episodeTitle}</h4>
           <input type="checkbox" name='watched' onChange={(e) => handleChange(e, index, episodeNumber)} checked={watched}/>
         </div>
+        
       )
 
       })
@@ -39,8 +41,13 @@ const SeriesShow = ({ dashboardShows, getShows, updateShow, user }) => {
 
   return (
     <>
-      <h1 className="showPageh1">{tvShow.showTitle}</h1>
+    <h1 className="showPageh1">{tvShow.showTitle}</h1>
+    
+    <div className="wrapper">
+      
       {seasons}
+    
+    </div>
     </>
   )
 }
