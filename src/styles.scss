@@ -5,15 +5,16 @@ $dark: #262626;
 $highlight: #7aecf1;
 $lowlight: #9388A2;
 
+body {
+    background-color: $dark;
+    // background-color: lightgray;
+    overflow: auto;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    background-color: $dark;
-    overflow: auto;
 }
 
 @mixin outer-container {
@@ -45,14 +46,7 @@ body {
     background-size: cover;
     border-radius: 10px;
     border: 3px solid $lowlight;
-    text-shadow: 2px 0 0 $highlight, 
-    -2px 0 0 $highlight, 
-    0 2px 0 $highlight, 
-    0 -2px 0 $highlight, 
-    1px 1px $highlight, 
-    -1px -1px 0 $highlight, 
-    1px -1px 0 $highlight, 
-    -1px 1px 0 $highlight;
+    text-shadow: 2px 0 0 $highlight, -2px 0 0 $highlight, 0 2px 0 $highlight, 0 -2px 0 $highlight, 1px 1px $highlight, -1px -1px 0 $highlight, 1px -1px 0 $highlight, -1px 1px 0 $highlight;
 }
 
 @mixin button-scheme {
@@ -94,7 +88,7 @@ body {
 
 // NAVBAR
 .navBarContainer {
-    border-bottom: 3px solid $lowlight;
+    border-bottom: 3px solid $secondary-color;
     box-shadow: #7aecf1;
     background-color: $primary-color;
     color: $secondary-color;
@@ -105,41 +99,45 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
     top: 0;
     width: 100%;
 
     .logo {
-        text-shadow: 0 2px 0 $lowlight;
         color: $secondary-color;
         letter-spacing: 5px;
     }
 
-    .bingeH1 {
-        color: $lowlight;
-    }
-
+    // Login button  IS HIDDEN TO NON UNTIL I FIISH THE NAV BAR
     .login {
         display: inline;
         margin-right: 15px;
-        font-weight: 700;
-        letter-spacing: 2px;
+        // background-color: rgb(175, 32, 32);
+        // padding-top: 20px;
+        // width: 10%;
+        // margin: auto;
+
+        //hidden for now untill @media is added====================================>
+        //talk with tuesday to see how she wants to handle this
+        // display: none;
+
+        @media(max-width: 768px) {
+            position: absolute;
+            right: 80px;
+        }
 
         &:hover {
             color: $highlight;
             font-size: 1.3rem;
-            text-shadow: 2px 0 0 $dark,
-                -2px 0 0 $dark,
-                0 2px 0 $dark,
-                0 -2px 0 $dark,
-                1px 1px $dark,
-                -1px -1px 0 $dark,
-                1px -1px 0 $dark,
-                -1px 1px 0 $dark;
+            box-shadow: rgba(206, 206, 216, 0.682) 0px 50px 100px -20px,
+                rgba(244, 240, 240, 0.3) 0px 30px 60px -30px,
+                rgba(255, 255, 255, 0.998) 0px -2px 6px 0px inset;
         }
+
+        
     }
 
     .navLink {
+        //border: 1px solid red;
         margin-right: 18px;
         font-size: 1.2rem;
         letter-spacing: 2px;
@@ -150,21 +148,68 @@ body {
         &:hover {
             color: $highlight;
             font-size: 1.3rem;
-            text-shadow: 2px 0 0 $dark,
-                -2px 0 0 $dark,
-                0 2px 0 $dark,
-                0 -2px 0 $dark,
-                1px 1px $dark,
-                -1px -1px 0 $dark,
-                1px -1px 0 $dark,
-                -1px 1px 0 $dark;            
+            box-shadow: rgba(206, 206, 216, 0.682) 0px 50px 100px -20px,
+                rgba(244, 240, 240, 0.3) 0px 30px 60px -30px,
+                rgba(255, 255, 255, 0.998) 0px -2px 6px 0px inset;
         }
     }
 
-    //Hamburger Styles=================>
-    .hamburger {
+//Hamburger Styles=================>
+.hamburger {
+    display: none;
+}
+
+
+
+
+
+//Media Queries=====================================>
+@media(max-width: 768px) {
+    a.navLink {
         display: none;
+        // border: 2px solid red;
     }
+
+    .hamburger {
+        // border: 2px solid red;
+        // outline: none;
+        background: none;
+        border: none;
+        margin-right: 25px;
+        cursor: pointer;
+        width: 40px;
+        height: 30px;
+        display: block;
+        position: relative;
+        // determines stack level of the element
+        z-index: 1;
+        /* controls the origin from where the hamburger will rotate */
+        // transform-origin: 0 0;
+        // transition: 2s;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 98%;
+        height: 5px;
+        margin-bottom: 5px;
+        position: relative;
+        background-color: $secondary-color;
+        border-radius: 3px;
+    }
+}
+}
+
+.hamburger:hover span:nth-child(2) {
+    opacity: .5;
+    transform: translateX(9px);
+    transition: 1s;
+
+}
+
+.hamburger.span:nth-child(1) {
+    transform: translate(0px, -2px)rotate(45deg);
+}
 
 //DashBoard Styles
 .dashHeader {
@@ -177,22 +222,18 @@ body {
     padding: 10px;
     font-family: 'Poppins', sans-serif;
     color: $secondary-color;
-    text-shadow: 0 2px 0 $lowlight;
-    text-decoration: underline $lowlight 2px;
-    text-underline-offset: 5px;
     letter-spacing: 3px;
 }
 
 .dashContainer {
     @include outer-container;
-    // background-color: yellow; 
-    margin:auto;
-    margin-top: 90px;
+    margin: auto;
+    // margin-top: 10px;
     font-family: 'Poppins', sans-serif;
     // border: 3px solid red;
     // border-radius: 10px;
     // height: 100vh;
-    width: 45%;
+    // width: 45%;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -200,7 +241,7 @@ body {
     box-shadow: rgba(28, 28, 29, 0.767) 0px 6px 12px -2px, rgba(0, 0, 0, 0.74) 0px 3px 7px -3px;
 
     a {
-        color: $dark;
+        color: black;
         text-decoration: none;
     }
 
@@ -219,8 +260,6 @@ body {
 
         button {
             @include button-scheme;
-
-            border-radius: 6px;
 
             &:hover,
             &:active {
@@ -244,15 +283,10 @@ body {
     display: flex;
     flex-direction: column;
     overflow: auto;
-    // Adding margin top here because I made the nav bar fixed
     margin-top: 90px;
-    padding-bottom: 20px;
     box-shadow: rgba(28, 28, 29, 0.767) 0px 6px 12px -2px, rgba(0, 0, 0, 0.74) 0px 3px 7px -3px;
 
     #search-header {
-        text-shadow: 0 2px 0 $lowlight;
-        text-decoration: underline $lowlight 2px;
-        text-underline-offset: 5px;
         letter-spacing: 3px;
     }
 
@@ -276,7 +310,6 @@ body {
             @include button-scheme;
             height: 30px;
             width: 65px;
-            border-radius: 6px;
 
             @include button-animation;
         }
@@ -309,7 +342,8 @@ body {
                 display: block;
             }
 
-            &:focus:after, &:active:after {
+            &:focus:after,
+            &:active:after {
                 content: 'Added!';
                 display: block;
             }
@@ -327,9 +361,9 @@ body {
 
 //individual Show Page Styles=========================>
 
-.wrapper{
+.wrapper {
     // background-color: pink;
-    
+
     width: 75%;
     margin: auto;
     display: flex;
@@ -347,6 +381,7 @@ body {
     width: 70%;
 
 }
+
 //controls elements inside the box
 .showPageContainer {
     @include outer-container;
@@ -358,39 +393,39 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: center ;
+    align-items: center;
 }
 
-@media(max-width: 600px){
-    
+@media(max-width: 600px) {
+
     //Dash Styles
-    
-    .dashHeader{
+
+    .dashHeader {
         font-size: 1.2rem;
         // border: 2px solid red;
         width: 98%;
     }
-    
-    .dashContainer{
+
+    .dashContainer {
         // background-color: aqua;
         width: 65%;
     }
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
     //Show Page Styles
-    .wrapper{
+    .wrapper {
         // background-color: green;
         width: 500px;
     }
 
-    .showPageh1{
+    .showPageh1 {
         font-size: 2.5rem;
     }
 
 
-    
+
 }
