@@ -3,6 +3,7 @@ $secondary-color: #3e7a96;
 $alternative-color: #619eb3;
 $dark: #262626;
 $highlight: #7aecf1;
+$lowlight: #9388A2;
 
 * {
     margin: 0;
@@ -38,13 +39,13 @@ $highlight: #7aecf1;
     background-position: center;
     background-size: cover;
     border-radius: 10px;
-    border: 3px solid $dark;
+    border: 3px solid $lowlight;
     text-shadow: 2px 0 0 $highlight, -2px 0 0 $highlight, 0 2px 0 $highlight, 0 -2px 0 $highlight, 1px 1px $highlight, -1px -1px 0 $highlight, 1px -1px 0 $highlight, -1px 1px 0 $highlight;
 }
 
 @mixin button-scheme {
     background-color: $secondary-color;
-    border-color: $dark;
+    border-color: $lowlight;
     color: $dark;
     font-family: 'Poppins', sans-serif;
     cursor: pointer;
@@ -87,7 +88,7 @@ body {
 
 // NAVBAR
 .navBarContainer {
-     border-bottom: 3px solid #9388A2;
+    border-bottom: 3px solid $lowlight;
     box-shadow: #7aecf1;
     background-color: $primary-color;
     color: $secondary-color;
@@ -98,16 +99,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  
-    .logo{
-    //Ask tuesday which of the 2 she likes????????????????????????????????
-      // color: $dark;
-      color: #9388A2;
-      letter-spacing: 5px;
+
+    .logo {
+        //Ask tuesday which of the 2 she likes????????????????????????????????
+        // color: $dark;
+        text-shadow: 0 2px 0 $lowlight;
+        color: $secondary-color;
+        letter-spacing: 5px;
     }
 
-    .bingeH1{
-      color:#9388A2;
+    .bingeH1 {
+        color: $lowlight;
     }
 
     // Login button  IS HIDDEN TO NON UNTIL I FIISH THE NAV BAR
@@ -118,7 +120,7 @@ body {
         // padding-top: 20px;
         // width: 10%;
         // margin: auto;
-      
+
         //hidden for now untill @media is added====================================>
         //talk with tuesday to see how she wants to handle this
         // display: none;
@@ -126,7 +128,9 @@ body {
         &:hover {
             color: $highlight;
             font-size: 1.3rem;
-            box-shadow: rgba(93, 50, 50, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            box-shadow: rgba(206, 206, 216, 0.682) 0px 50px 100px -20px,
+                rgba(244, 240, 240, 0.3) 0px 30px 60px -30px,
+                rgba(255, 255, 255, 0.998) 0px -2px 6px 0px inset;
         }
     }
 
@@ -142,7 +146,9 @@ body {
         &:hover {
             color: $highlight;
             font-size: 1.3rem;
-            box-shadow: rgba(206, 206, 216, 0.682) 0px 50px 100px -20px, rgba(244, 240, 240, 0.3) 0px 30px 60px -30px, rgba(255, 255, 255, 0.998) 0px -2px 6px 0px inset;
+            box-shadow: rgba(206, 206, 216, 0.682) 0px 50px 100px -20px,
+                rgba(244, 240, 240, 0.3) 0px 30px 60px -30px,
+                rgba(255, 255, 255, 0.998) 0px -2px 6px 0px inset;
         }
     }
 
@@ -170,9 +176,9 @@ body {
     //         position: relative;
     //         // determines stack level of the element
     //         z-index: 1;
-               /* controls the origin from where the hamburger will rotate */
-               // transform-origin: 0 0;
-               // transition: 2s;
+    /* controls the origin from where the hamburger will rotate */
+    // transform-origin: 0 0;
+    // transition: 2s;
     //     }
 
     //     .hamburger span {
@@ -181,21 +187,22 @@ body {
     //         height: 5px;
     //         margin-bottom: 5px;
     //         position: relative;
-    //         background-color: #9388A2;
+    //         background-color: $lowlight;
     //         border-radius: 3px;
     //     }
     // }
 }
 
-.hamburger:hover span:nth-child(2){
-       opacity: .5;
-        transform: translateX(9px);
-        transition: 1s;
-  
- }
- .hamburger.span:nth-child(1){
+.hamburger:hover span:nth-child(2) {
+    opacity: .5;
+    transform: translateX(9px);
+    transition: 1s;
+
+}
+
+.hamburger.span:nth-child(1) {
     transform: translate(0px, -2px)rotate(45deg);
-  }
+}
 
 //DashBoard Styles
 .dashHeader {
@@ -207,11 +214,15 @@ body {
     padding: 10px;
     font-family: 'Poppins', sans-serif;
     color: $secondary-color;
+    text-shadow: 0 2px 0 $lowlight;
+    text-decoration: underline $lowlight 2px;
+    text-underline-offset: 5px;
+    letter-spacing: 3px;
 }
 
 .dashContainer {
     @include outer-container;
-    margin:auto;
+    margin: auto;
     // margin-top: 10px;
     font-family: 'Poppins', sans-serif;
     // border: 3px solid red;
@@ -243,6 +254,25 @@ body {
 
         button {
             @include button-scheme;
+
+            $primary-color: #1b343c;
+                $secondary-color: #3e7a96;
+                $alternative-color: #619eb3;
+                $dark: #262626;
+                $highlight: #7aecf1;
+                $lowlight: #9388A2;
+
+            &:hover,
+            &:active {
+                background: linear-gradient(269deg,
+                        #3e7a96,
+                        #619eb3,
+                        #ff1010,
+                        #619eb3,
+                        #3e7a96);
+                background-size: 300% 300%;
+                animation: gradient-animation 3s ease infinite;
+            }
         }
     }
 }
@@ -256,6 +286,13 @@ body {
     overflow: auto;
     box-shadow: rgba(28, 28, 29, 0.767) 0px 6px 12px -2px, rgba(0, 0, 0, 0.74) 0px 3px 7px -3px;
 
+    #search-header {
+        text-shadow: 0 2px 0 $lowlight;
+        text-decoration: underline $lowlight 2px;
+        text-underline-offset: 5px;
+        letter-spacing: 3px;
+    }
+
     h1 {
         margin-top: 10px;
         padding: 10px;
@@ -267,6 +304,9 @@ body {
         input {
             height: 30px;
             margin-right: 15px;
+            background-color: $lowlight;
+            color: $dark;
+            padding: 5px;
         }
 
         button {
@@ -300,6 +340,16 @@ body {
             height: 70px;
             border-radius: 15px;
 
+            &:after {
+                content: 'Add to BingeList';
+                display: block;
+            }
+
+            &:focus:after, &:active:after {
+                content: 'Added!';
+                display: block;
+            }
+
             @include button-animation;
 
             @media screen and (max-width: 915px) {
@@ -324,4 +374,3 @@ body {
     width: 50%;
     margin: 0 auto;
 }
-

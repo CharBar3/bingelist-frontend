@@ -72,7 +72,7 @@ const Search = ({ addToBingeList }) => {
                             background={backdropSrcConvert}
                         />
                         <p> {overview} </p>
-                        <button onClick={() => showIdApiCall(id, backdrop_path, poster_path)}>Add to BingeList</button>
+                        <button onClick={() => showIdApiCall(id, backdrop_path, poster_path)}></button>
                     </div>
                 )
             }
