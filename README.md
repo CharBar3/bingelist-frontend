@@ -26,11 +26,12 @@ A mobile/web application that allows you to keep track of your favorite TV shows
 * [Live Link](/)
 
 ## Screenshots
-<img src="https://images2.imgbox.com/3f/21/yKvoEiO0_o.png" alt="drawing" width="450"/>
-
-
-## Unsolved Problems
-
+<img src="https://images2.imgbox.com/06/34/nXsgC7rX_o.png" alt="drawing" width="450"/>
+<img src="https://images2.imgbox.com/6d/62/JNHhTVA8_o.png" alt="drawing" width="450"/>
+<img src="https://images2.imgbox.com/6e/17/F5mdCJEn_o.png" alt="drawing" width="450"/>
 
 ## Future Enhancements
-
+* Comments on episodes to mark down your thoughts and share with others
+* More detail on episodes/separating by season
+* Adding a reccommended shows page
+* No longer allowing to add multiple entries of the same show
