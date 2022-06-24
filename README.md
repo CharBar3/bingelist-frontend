@@ -17,7 +17,11 @@ A mobile/web application that allows you to keep track of your favorite TV shows
 * Express
 * React
 * Node
+* HTML, JS, CSS
 * Google Firebase
+* SASS
+* Heroku
+* Bootstrap
 * [The Movie Database API](https://developers.themoviedb.org/3/getting-started/introduction)
 
 ## Getting Started
