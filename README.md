@@ -23,7 +23,8 @@ A mobile/web application that allows you to keep track of your favorite TV shows
 ## Getting Started
 * [WireFrame](https://www.figma.com/file/lxWsdEddZhfZeCbWgt3EJc/BingeList?node-id=0%3A1)
 * [Trello](https://trello.com/b/Nleyr78L/bingelist)
-* [Live Link](/)
+* [Pitch Deck](https://my.visme.co/view/rxewgvj0-3ezl33qx4pzrl0q1#s1)
+* [Live Link](https://bingelist-project.netlify.app/bingelist/dashboard)
 
 ## Screenshots
 <img src="https://images2.imgbox.com/06/34/nXsgC7rX_o.png" alt="drawing" width="450"/>
