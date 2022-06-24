@@ -87,6 +87,11 @@ body {
     }
 }
 
+.home {
+    @include outer-container;
+    padding: 10px;
+}
+
 // NAVBAR
 .navBarContainer {
     border-bottom: 3px solid $secondary-color;
@@ -136,6 +141,7 @@ body {
 
         
     }
+
 
     .navLink {
         //border: 1px solid red;
@@ -420,7 +426,7 @@ body {
         width: 65%;
     }
 
-
+    
     //Show Page Styles
     .wrapper {
         // background-color: green;
