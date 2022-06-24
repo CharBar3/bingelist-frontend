@@ -32,7 +32,9 @@ useEffect(() => {
 //   }
 // })
 
-const URL = 'http://localhost:4000/bingelist/'
+const URL = 'https://binge-list-project.herokuapp.com/bingelist/'
+// const URL = 'http://localhost:4000/bingelist'
+
 
 const [dashboardShows, setDashboardShows] = useState([])
 
