@@ -31,7 +31,8 @@ function App() {
   //   }
   // })
 
-  const URL = "https://bingelist-backend-production.up.railway.app/bingelist";
+  const URL = "https://bingelist-backend.onrender.com/bingelist";
+  // const URL = "https://bingelist-backend-production.up.railway.app/bingelist";
   // const URL = "https://binge-list-project.herokuapp.com/bingelist/";
   // const URL = 'http://localhost:4000/bingelist'
 
