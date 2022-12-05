@@ -10,7 +10,7 @@ const Home = (props) => {
       <div>
         <h1>Home Page</h1>
 
-        {props.user 
+        {props.user
         // So this is the same as before, if user is logged in display Link
         // else show the about info
         ? <Link to = '/bingelist/dashboard'>
